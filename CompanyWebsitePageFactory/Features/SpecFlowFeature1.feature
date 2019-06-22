@@ -7,4 +7,4 @@ Scenario: Use a search term that will return a large volume of articles
 	Given I am on the Linklaters homepage
 	And I click on Insights from the global navigation bar
 	When I enter a search term into Insights name search box
-	Then all results containing the search box will appear
+	#Then all results containing the search box will appear

@@ -85,8 +85,8 @@
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\Insights.cs" />
     <Compile Include="PageObjects\Page.cs" />
+    <Compile Include="StepDefinitions\HomePageSteps.cs" />
     <Compile Include="StepDefinitions\InsightsSteps.cs" />
-    <Compile Include="TestCases\InsightsSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDataAccess\ExcelDataAccess.cs" />
     <Compile Include="TestDataAccess\UserData.cs" />

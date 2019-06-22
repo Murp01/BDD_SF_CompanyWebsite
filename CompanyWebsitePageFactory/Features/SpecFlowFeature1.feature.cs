@@ -85,8 +85,6 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I click on Insights from the global navigation bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
  testRunner.When("I enter a search term into Insights name search box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
- testRunner.Then("all results containing the search box will appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
