@@ -77,6 +77,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrowserWrapper\BrowserFactory.cs" />
+    <Compile Include="Features\FindLawyerPagePeopleSearch.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FindLawyerPagePeopleSearch.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\SpecFlowFeature1.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,6 +100,10 @@
     <None Include="App.config" />
     <None Include="Configurations\Environment.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Features\FindLawyerPagePeopleSearch.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>FindLawyerPagePeopleSearch.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\SpecFlowFeature1.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
