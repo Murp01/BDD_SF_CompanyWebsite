@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using CompanyWebsitePageFactory.Extensions;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
@@ -22,10 +23,12 @@ namespace CompanyWebsitePageFactory.PageObjects
         public IWebElement Btn_SiteSearch { get; set; }
 
 
-            public void ClickOnNavInsights()
+        public void ClickOnNavInsights()
         {
-            PNav_Insights.Click();
+            //PNav_Insights.Click();
+            PNav_Insights.ClickOnIt("PNav_Insights");
         }
+
 
 
     }

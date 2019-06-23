@@ -1,4 +1,5 @@
 ﻿using CompanyWebsitePageFactory.BrowserWrapper;
+using CompanyWebsitePageFactory.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,6 +18,12 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         {
             BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
+        }
+
+        [Given(@"I click on Insights from the global navigation bar")]
+        public void GivenIClickOnInsightsFromTheGlobalNavigationBar()
+        {
+            Page.Home.ClickOnNavInsights();           
         }
 
     }

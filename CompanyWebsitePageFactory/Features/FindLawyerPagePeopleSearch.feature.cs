@@ -72,11 +72,9 @@ namespace CompanyWebsitePageFactory.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("I use Lawyer search to locate a Lawyer contact")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void IUseLawyerSearchToLocateALawyerContact()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I use Lawyer search to locate a Lawyer contact", null, new string[] {
-                        "mytag"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I use Lawyer search to locate a Lawyer contact", null, ((string[])(null)));
 #line 7
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

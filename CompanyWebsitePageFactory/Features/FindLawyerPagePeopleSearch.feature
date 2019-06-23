@@ -3,7 +3,7 @@
 	widget.  The Person search has multiple filters and 
 	searches across business teams and lawyers
 
-@mytag
+
 Scenario: I use Lawyer search to locate a Lawyer contact
 	Given I am on the Lawyer Search Page
 	And the lawyer directory tab is selected

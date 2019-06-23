@@ -26,6 +26,7 @@ namespace CompanyWebsitePageFactory.PageObjects
         {
             get { return GetPage<Insights>(); }
         }
+
     }
 }
 

@@ -10,11 +10,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
     [Binding]
     public class InsightsSteps
     {      
-        [Given(@"I click on Insights from the global navigation bar")]
-        public void GivenIClickOnInsightsFromTheGlobalNavigationBar()
-        {
-            Page.Home.ClickOnNavInsights();
-        }
+
         
         [When(@"I enter a search term into Insights name search box")]
         public void WhenIEnterASearchTermIntoInsightsNameSearchBox()

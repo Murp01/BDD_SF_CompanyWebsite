@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrowserWrapper\BrowserFactory.cs" />
+    <Compile Include="Extensions\Element_Extensions.cs" />
     <Compile Include="Features\FindLawyerPagePeopleSearch.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +91,7 @@
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\Insights.cs" />
     <Compile Include="PageObjects\Page.cs" />
+    <Compile Include="StepDefinitions\FindPeopleSteps.cs" />
     <Compile Include="StepDefinitions\HomePageSteps.cs" />
     <Compile Include="StepDefinitions\InsightsSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
