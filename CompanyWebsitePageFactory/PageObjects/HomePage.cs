@@ -27,6 +27,7 @@ namespace CompanyWebsitePageFactory.PageObjects
         {
             //PNav_Insights.Click();
             PNav_Insights.ClickOnIt("PNav_Insights");
+            
         }
 
 
