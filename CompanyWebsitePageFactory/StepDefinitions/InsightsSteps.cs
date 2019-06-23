@@ -10,8 +10,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
     [Binding]
     public class InsightsSteps
     {      
-
-        
+      
         [When(@"I enter a search term into Insights name search box")]
         public void WhenIEnterASearchTermIntoInsightsNameSearchBox()
         {
@@ -23,5 +22,12 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         {
             ScenarioContext.Current.Pending();
         }
+
+        [When(@"I select '(.*)' from the Year drop down box")]
+        public void WhenISelectFromTheYearDropDownBox(string Year)
+        {
+            Page.Insight.FilterByYear(Year);
+        }
+
     }
 }

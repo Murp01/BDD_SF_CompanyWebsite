@@ -1,4 +1,5 @@
-﻿using CompanyWebsitePageFactory.TestDataAccess;
+﻿using CompanyWebsitePageFactory.Extensions;
+using CompanyWebsitePageFactory.TestDataAccess;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
@@ -13,12 +14,23 @@ namespace CompanyWebsitePageFactory.PageObjects
     {
         //private IWebDriver driver;
 
-        [FindsBy(How = How.XPath, Using = "//input[@placeholder='Name']")][CacheLookup]
-        public IWebElement Input_Name { get; set; }
+
 
         [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Reset search')]")]
         [CacheLookup]
         public IWebElement Btn_Reset { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "")]
+        [CacheLookup]
+        public IWebElement DrpDwn_Location { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Year')]")]
+        [CacheLookup]
+        public IWebElement DrpDwn_Year { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//input[@placeholder='Name']")]
+        [CacheLookup]
+        public IWebElement Input_Name { get; set; }
 
         public void SearchAndReset()
         {
@@ -26,6 +38,10 @@ namespace CompanyWebsitePageFactory.PageObjects
             Btn_Reset.Click();
         }
 
+        public void FilterByYear(string Year)
+        {
+            DrpDwn_Year.SelectByText(Year, "DrpDwn_Year");
+        }
     }
 }
 

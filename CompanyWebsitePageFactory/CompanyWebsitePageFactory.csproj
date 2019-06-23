@@ -78,19 +78,26 @@
   <ItemGroup>
     <Compile Include="BrowserWrapper\BrowserFactory.cs" />
     <Compile Include="Extensions\Element_Extensions.cs" />
+    <Compile Include="Features\AccordionWidget.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccordionWidget.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\FindLawyerPagePeopleSearch.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FindLawyerPagePeopleSearch.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\SpecFlowFeature1.feature.cs">
+    <Compile Include="Features\ArticleSearch.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
+      <DependentUpon>ArticleSearch.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageObjects\AboutUs.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\Insights.cs" />
     <Compile Include="PageObjects\Page.cs" />
+    <Compile Include="StepDefinitions\AboutUsSteps.cs" />
     <Compile Include="StepDefinitions\FindPeopleSteps.cs" />
     <Compile Include="StepDefinitions\HomePageSteps.cs" />
     <Compile Include="StepDefinitions\InsightsSteps.cs" />
@@ -103,13 +110,17 @@
     <None Include="Configurations\Environment.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Features\AccordionWidget.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AccordionWidget.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\FindLawyerPagePeopleSearch.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FindLawyerPagePeopleSearch.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\SpecFlowFeature1.feature">
+    <None Include="Features\ArticleSearch.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
+      <LastGenOutput>ArticleSearch.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="TestDataAccess\TestData.xlsx" />

@@ -18,20 +18,23 @@ namespace CompanyWebsitePageFactory.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Searching Insight Articles")]
-    public partial class SearchingInsightArticlesFeature
+    [NUnit.Framework.DescriptionAttribute("AccordionWidget")]
+    public partial class AccordionWidgetFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "SpecFlowFeature1.feature"
+#line 1 "AccordionWidget.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Searching Insight Articles", "\tVarious tests to cover searching insight articles", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "AccordionWidget", @"	The website uses an accordion widget to neatly show subject headers with its content hidden until clicked.
+	Upon clicking on the subject header the content will be displayed below.  The content can contain links which
+	when clicked on will redirect to another webpage.  Each segment will remain open when another has been clicked
+	on.  When arriving on a webage that contains an accordion feature all segments will be closed by default", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -69,22 +72,30 @@ namespace CompanyWebsitePageFactory.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Use a search term that will return a large volume of articles")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void UseASearchTermThatWillReturnALargeVolumeOfArticles()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Use a search term that will return a large volume of articles", null, new string[] {
+#line 7
+#line 8
+ testRunner.Given("I am on the About Us homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open all accordions segments")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public virtual void OpenAllAccordionsSegments()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open all accordions segments", null, new string[] {
                         "mytag"});
-#line 6
+#line 11
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
- testRunner.Given("I am on the Linklaters homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
- testRunner.And("I click on Insights from the global navigation bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
- testRunner.When("I enter a search term into Insights name search box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.FeatureBackground();
+#line 12
+ testRunner.When("I click on each \"Closed\" accordion segment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
+ testRunner.Then("the correct content will be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
