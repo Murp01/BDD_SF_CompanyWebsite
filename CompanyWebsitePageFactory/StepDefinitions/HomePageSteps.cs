@@ -18,6 +18,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         {
             BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
+            BrowserFactory.Driver.Manage().Window.Maximize();
         }
 
         [Given(@"I click on Insights from the global navigation bar")]

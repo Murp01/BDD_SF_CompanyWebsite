@@ -14,6 +14,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         {
             BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["AboutUs"]);
+            BrowserFactory.Driver.Manage().Window.Maximize();
         }
 
         [When(@"I click on each ""(.*)"" accordion segment")]
@@ -26,7 +27,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Then(@"the correct content will be displayed")]
         public void ThenTheCorrectContentWillBeDisplayed()
         {
-            ScenarioContext.Current.Pending();
+            Page.AboutUs.assertAccordionTextField();
         }
     }
 }

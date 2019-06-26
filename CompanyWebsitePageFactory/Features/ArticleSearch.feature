@@ -8,7 +8,7 @@ Background: I access the Insights page
 
 @mytag
 Scenario: Use a search term that will return a large volume of articles
-	#When I enter a search term into Insights name search box
+	When I enter a search term into Insights name search box
 	#Then all results containing the search box will appear
 
 

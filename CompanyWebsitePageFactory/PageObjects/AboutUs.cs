@@ -3,14 +3,18 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CompanyWebsitePageFactory.PageObjects
 {
     class AboutUs
     {
+        private object container_Accordion02;
+
         [FindsBy(How = How.CssSelector, Using = "#container-special-offers")]
         [CacheLookup]
         public IWebElement button_SpecialOffers { get; set; }
@@ -61,19 +65,22 @@ namespace CompanyWebsitePageFactory.PageObjects
                     {
                         Console.WriteLine("Already Open");
                     }
-
                     if (Container_Accordion02.GetAttribute("style").Contains("none"))
                     {
-                        tab_Accordion01.ClickOnIt("Accordion01");
+                        TimeSpan ts = new TimeSpan(0, 0, 1);
+                        Thread.Sleep(ts);
+                        tab_Accordion02.ClickOnIt("Accordion02");
                     }
                     else
                     {
                         Console.WriteLine("Already Open");
                     }
 
-                    if (Container_Accordion01.GetAttribute("style").Contains("none"))
+                    if (Container_Accordion03.GetAttribute("style").Contains("none"))
                     {
-                        tab_Accordion01.ClickOnIt("Accordion01");
+                        TimeSpan ts = new TimeSpan(0, 0, 1);
+                        Thread.Sleep(ts);
+                        tab_Accordion03.ClickOnIt("Accordion03");
                     }
                     else
                     {
@@ -81,9 +88,43 @@ namespace CompanyWebsitePageFactory.PageObjects
                     }
                     break;
 
+                case "Open":
+                    if (Container_Accordion01.GetAttribute("style").Contains("block"))
+                    {
+                        tab_Accordion01.ClickOnIt("Accordion01");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Already Open");
+                    }
+                    if (Container_Accordion02.GetAttribute("style").Contains("block"))
+                    {
+                        tab_Accordion02.ClickOnIt("Accordion02");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Already Open");
+                    }
+                    if (Container_Accordion03.GetAttribute("style").Contains("block"))
+                    {
+                        tab_Accordion03.ClickOnIt("Accordion03");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Already Open");
+                    }
+                    break;
             }
 
 
+        }
+
+
+        public void assertAccordionTextField()
+        {
+            Debug.Assert(Container_Accordion01.GetAttribute("style").Contains("block"));
+            Debug.Assert(Container_Accordion02.GetAttribute("style").Contains("block"));
+            Debug.Assert(Container_Accordion03.GetAttribute("style").Contains("block"));
         }
     }
 }
