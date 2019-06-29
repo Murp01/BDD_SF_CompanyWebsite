@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="BrowserWrapper\BrowserFactory.cs" />
     <Compile Include="Extensions\Element_Extensions.cs" />
+    <Compile Include="Extensions\JavascriptExecutor.cs" />
     <Compile Include="Features\AccordionWidget.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,6 +93,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ArticleSearch.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\HomePageCarouselWidget.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomePageCarouselWidget.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\AboutUs.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
@@ -121,6 +127,10 @@
     <None Include="Features\ArticleSearch.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ArticleSearch.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\HomePageCarouselWidget.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>HomePageCarouselWidget.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="TestDataAccess\TestData.xlsx" />

@@ -27,5 +27,54 @@ namespace CompanyWebsitePageFactory.StepDefinitions
             Page.Home.ClickOnNavInsights();           
         }
 
+        [When(@"I scroll the carousel feature by clicking on the ""(.*)"" border arrow")]
+        public void WhenIScrollTheCarouselFeatureByClickingOnTheBorderArrow(string BorderArrow)
+        {
+            Page.Home.AssertSlideHasChanged(BorderArrow);
+        }
+
+        [Then(@"the carousel slide will change")]
+        public void ThenTheCarouselSlideWillChange()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"""(.*)"" tab is selected")]
+        public void GivenTabIsSelected(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"I click on ""(.*)"" tab")]
+        public void WhenIClickOnTab(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"""(.*)"" will be displayed")]
+        public void ThenWillBeDisplayed(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"""(.*)"" is selected with ""(.*)"" selected")]
+        public void GivenIsSelectedWithSelected(string p0, string p1)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"I click on the ""(.*)"" link from the slide")]
+        public void WhenIClickOnTheLinkFromTheSlide(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"the ""(.*)"" webpage will be opened")]
+        public void ThenTheWebpageWillBeOpened(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
     }
 }

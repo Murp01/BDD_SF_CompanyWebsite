@@ -22,6 +22,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         public void WhenIClickOnEachAccordionSegment(string ClosedAccordion)
         {
             Page.AboutUs.AccordionCheckOpenCloseThenClick(ClosedAccordion);
+            
         }
 
 

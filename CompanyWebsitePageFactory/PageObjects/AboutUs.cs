@@ -1,4 +1,5 @@
-﻿using CompanyWebsitePageFactory.Extensions;
+﻿using CompanyWebsitePageFactory.BrowserWrapper;
+using CompanyWebsitePageFactory.Extensions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -36,15 +37,15 @@ namespace CompanyWebsitePageFactory.PageObjects
         [CacheLookup]
         public IWebElement href_ResponsibleBusinessSection { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//h2[@id='ui-id-1']")]
+        [FindsBy(How = How.CssSelector, Using = "#ui-id-1")]
         [CacheLookup]
         public IWebElement tab_Accordion01 { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//h2[@id='ui-id-3']")]
+        [FindsBy(How = How.CssSelector, Using = "#ui-id-3")]
         [CacheLookup]
         public IWebElement tab_Accordion02 { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//h2[@id='ui-id-5']")]
+        [FindsBy(How = How.CssSelector, Using = "#ui-id-5")]
         [CacheLookup]
         public IWebElement tab_Accordion03 { get; set; }
 
@@ -60,7 +61,7 @@ namespace CompanyWebsitePageFactory.PageObjects
                 case "Closed":
                     if (Container_Accordion01.GetAttribute("style").Contains("none"))
                     {
-                        tab_Accordion01.ClickOnIt("Accordion01");
+                        //tab_Accordion01.ClickOnIt("Accordion01");  
                     }
                     else
                     {
@@ -92,22 +93,30 @@ namespace CompanyWebsitePageFactory.PageObjects
                 case "Open":
                     if (Container_Accordion01.GetAttribute("style").Contains("block"))
                     {
+                        TimeSpan ts = new TimeSpan(0, 0, 2);
+                        Thread.Sleep(ts);
                         tab_Accordion01.ClickOnIt("Accordion01");
                     }
                     else
                     {
                         Console.WriteLine("Already Open");
                     }
+
                     if (Container_Accordion02.GetAttribute("style").Contains("block"))
                     {
+                        TimeSpan ts = new TimeSpan(0, 0, 2);
+                        Thread.Sleep(ts);
                         tab_Accordion02.ClickOnIt("Accordion02");
                     }
                     else
                     {
                         Console.WriteLine("Already Open");
                     }
+
                     if (Container_Accordion03.GetAttribute("style").Contains("block"))
                     {
+                        TimeSpan ts = new TimeSpan(0, 0, 2);
+                        Thread.Sleep(ts);
                         tab_Accordion03.ClickOnIt("Accordion03");
                     }
                     else

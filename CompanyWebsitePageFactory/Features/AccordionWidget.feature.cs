@@ -82,11 +82,11 @@ namespace CompanyWebsitePageFactory.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open all accordions segments")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
+        [NUnit.Framework.CategoryAttribute("Ready")]
         public virtual void OpenAllAccordionsSegments()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open all accordions segments", null, new string[] {
-                        "mytag"});
+                        "Ready"});
 #line 11
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -102,9 +102,11 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Upon arriving on the page the accordion will be closed by default")]
+        [NUnit.Framework.CategoryAttribute("Ready")]
         public virtual void UponArrivingOnThePageTheAccordionWillBeClosedByDefault()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Upon arriving on the page the accordion will be closed by default", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Upon arriving on the page the accordion will be closed by default", null, new string[] {
+                        "Ready"});
 #line 16
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
