@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using CompanyWebsitePageFactory.BrowserWrapper;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -60,5 +61,24 @@ namespace CompanyWebsitePageFactory.Extensions
             oSelect.SelectByValue(text);
             Console.WriteLine(text + " value selected on " + elementName);
         }
+
+        public static void BrowserNavigate(string nav)
+        {
+            switch (nav)
+            {
+                case ("Forward"):
+                    BrowserFactory.Driver.Navigate().Forward();
+                    
+                    break;
+                case ("Back"):
+                    BrowserFactory.Driver.Navigate().Back();
+                    break;
+                case ("Refresh"):
+                    BrowserFactory.Driver.Navigate().Refresh();
+                    break;                  
+            }
+            Console.WriteLine("Browser Navigated " + nav);
+        }
     }
+
 }

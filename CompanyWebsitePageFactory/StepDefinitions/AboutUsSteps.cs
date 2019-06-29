@@ -1,4 +1,5 @@
 ﻿using CompanyWebsitePageFactory.BrowserWrapper;
+using CompanyWebsitePageFactory.Extensions;
 using CompanyWebsitePageFactory.PageObjects;
 using System;
 using System.Configuration;
@@ -29,5 +30,45 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         {
             Page.AboutUs.assertAccordionTextField();
         }
+
+        [Given(@"accordion ""(.*)"" is open")]
+        public void GivenAccordionIsOpen(string segment)
+        {
+            Page.AboutUs.assertAccordionTabOpenElseClickToOpen(segment);
+        }
+
+        [When(@"I click on the browsers ""(.*)"" navigation button")]
+        public void WhenIClickOnTheBrowsersNavigationButton(string nav)
+        {
+            Element_Extensions.BrowserNavigate(nav);
+        }
+
+        [Then(@"all accordion segments will be closed")]
+        public void ThenAllAccordionSegmentsWillBeClosed()
+        {
+            Page.AboutUs.assertAllAccordionTabsAreClosed();
+        }
+
+        [Given(@"""(.*)"" is open")]
+        public void GivenIsOpen(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"I click on the ""(.*)"" link from within ""(.*)""")]
+        public void WhenIClickOnTheLinkFromWithin(string link, string section)
+        {
+            Page.AboutUs.clickOnLinkWithinAccordionTextbox(link, section);
+        }
+
+        [Then(@"the webpage will change to ""(.*)""")]
+        public void ThenTheWebpageWillChangeTo(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
+
+
     }
 }

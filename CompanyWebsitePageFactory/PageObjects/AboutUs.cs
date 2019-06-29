@@ -1,4 +1,5 @@
 ﻿using CompanyWebsitePageFactory.Extensions;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
@@ -119,12 +120,69 @@ namespace CompanyWebsitePageFactory.PageObjects
 
         }
 
-
         public void assertAccordionTextField()
         {
-            Debug.Assert(Container_Accordion01.GetAttribute("style").Contains("block"));
-            Debug.Assert(Container_Accordion02.GetAttribute("style").Contains("block"));
-            Debug.Assert(Container_Accordion03.GetAttribute("style").Contains("block"));
+            Assert.That(Container_Accordion01.GetAttribute("style").Contains("block"));
+            Assert.That(Container_Accordion02.GetAttribute("style").Contains("block"));
+            Assert.That(Container_Accordion03.GetAttribute("style").Contains("block"));
         }
+
+        public void assertAccordionTabOpenElseClickToOpen(string OpenTab)
+        {
+            switch (OpenTab)
+            {
+                case "Segment01":
+                    if (!Container_Accordion01.GetAttribute("style").Contains("block"))
+                    {
+                        tab_Accordion01.ClickOnIt("Accordion tab01 was closed.  Clicked to open");
+                    }
+                    break;
+                case "Segment02":
+                    if (!Container_Accordion02.GetAttribute("style").Contains("block"))
+                    {
+                        tab_Accordion02.ClickOnIt("Accordion tab02 was closed.  Clicked to open");
+                    }
+                    break;
+
+                case "Segment03":
+                    if (!Container_Accordion02.GetAttribute("style").Contains("block"))
+                    {
+                        tab_Accordion02.ClickOnIt("Accordion tab02 was closed.  Clicked to open");
+                    }
+                    break;
+            }
+        }
+
+        public void assertAllAccordionTabsAreClosed()
+        {
+            Assert.That(Container_Accordion01.GetAttribute("style").Contains("none"));
+            Assert.That(Container_Accordion02.GetAttribute("style").Contains("none"));
+            Assert.That(Container_Accordion03.GetAttribute("style").Contains("none"));
+        }
+
+        public void clickOnLinkWithinAccordionTextbox(String link, String section) //throws InterruptedException
+        {
+            Console.WriteLine(section);
+            Console.WriteLine(link);
+		switch(section) {		
+			case "Segment01":
+                    switch (link)
+                    {
+                        case ("ResponsibleBusinessSection"):
+                            href_ResponsibleBusinessSection.ClickOnIt("Clicked on " + link + " from " + section + ".");
+                            break;
+                        case ("Add new"):
+                            break;
+                    }                                       
+				break;
+			case "Segment02":
+                    //href_ResponsibleBusinessSection.ClickOnIt("Clicked on " + link + " from " + section + ".");
+                break;
+
+		}
+
+
+
+}
     }
 }
