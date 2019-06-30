@@ -77,6 +77,21 @@ namespace CompanyWebsitePageFactory.PageObjects
         [CacheLookup]
         private IWebElement Slide_CurrentSlide { get; set; }
 
+        public void AssertSlideFromCarouselChanged(string Slide)
+        {
+            switch (Slide)
+            {
+                case "Slide01":
+                    Assert.That(Slide_tab01Slide01.GetAttribute("aria-hidden") == "false");
+                    break;
+                case "Slide02":
+                    Assert.That(Slide_tab01Slide02.GetAttribute("aria-hidden") == "false");
+                    break;
+                case "Slide03":
+                    Assert.That(Slide_tab01Slide03.GetAttribute("aria-hidden") == "false");
+                    break;
+            }
+        }
 
         //WIP
         public void AssertSlideHasChanged(string BorderArrow)
@@ -110,6 +125,25 @@ namespace CompanyWebsitePageFactory.PageObjects
 
         }
 
+        public void AssertCorrectTabIsDisplayed(string Category)
+        {
+            switch (Category)
+            {
+                case "Category01":
+                    Assert.That(Tab_Carousel01.Selected);
+                    break;
+                case "Category02":
+                    Assert.That(Tab_Carousel02.Selected);
+                    break;
+                case "Category03":
+                    Assert.That(Tab_Carousel03.Selected);
+                    break;
+                case "Category04":
+                    Assert.That(Tab_Carousel04.Selected);
+                    break;
+            }
+        }
+
         public void ClickOnNavInsights()
         {
             PNav_Insights.ClickOnIt("PNav_Insights");
@@ -117,36 +151,21 @@ namespace CompanyWebsitePageFactory.PageObjects
 
         public void selectCarouselTab(string Category)
         {
-
             switch (Category)
             {
-
                 case "Category01":
-
                     Tab_Carousel01.ClickOnIt("Clicked on " + Tab_Carousel01);
-
                     break;
-
                 case "Category02":
-
                     Tab_Carousel02.ClickOnIt("Clicked on " + Tab_Carousel02);
-
                     break;
-
                 case "Category03":
-
                     Tab_Carousel03.ClickOnIt("Clicked on " + Tab_Carousel03);
-
                     break;
-
                 case "Category04":
-
                     Tab_Carousel04.ClickOnIt("Clicked on " + Tab_Carousel04);
-
                     break;
-
             }
-
         }
 
         public void selectSlideFromCarouselTab(string Slide)
@@ -155,18 +174,18 @@ namespace CompanyWebsitePageFactory.PageObjects
             {
                 case "Slide01":
                     Slide_tab01Slide01.ClickOnIt("Clicked on " + Slide_tab01Slide01);
-                    Assert.That(Slide_tab01Slide01.GetAttribute("aria-hidden") == "false");
                     break;
                 case "Slide02":
                     Slide_tab01Slide02.ClickOnIt("Clicked on " + Slide_tab01Slide02);
-                    Assert.That(Slide_tab01Slide02.GetAttribute("aria-hidden") == "false");
                     break;
                 case "Slide03":
                     Slide_tab01Slide03.ClickOnIt("Clicked on " + Slide_tab01Slide03);
-                    Assert.That(Slide_tab01Slide03.GetAttribute("aria-hidden") == "false");
                     break;
             }
         }
 
+
     }
+
+    
 }

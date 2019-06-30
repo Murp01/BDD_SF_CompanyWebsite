@@ -52,10 +52,17 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         }
 
         [Then(@"""(.*)"" will be displayed")]
-        public void ThenWillBeDisplayed(string p0)
+        public void ThenWillBeDisplayed(string Category)
         {
-            //Each slide is asserted on previous steps
+            Page.Home.AssertSlideFromCarouselChanged(Category);
         }
+
+        [Then(@"""(.*)"" tab will be selected")]
+        public void ThenTabWillBeSelected(string Category)
+        {
+            Page.Home.AssertCorrectTabIsDisplayed(Category);
+        }
+
 
         [Given(@"""(.*)"" is selected with ""(.*)"" selected")]
         public void GivenIsSelectedWithSelected(string p0, string p1)

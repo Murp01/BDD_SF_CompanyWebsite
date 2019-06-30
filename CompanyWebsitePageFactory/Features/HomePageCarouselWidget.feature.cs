@@ -101,9 +101,9 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Click on each tab from within a carousel category")]
         [NUnit.Framework.CategoryAttribute("Complete")]
-        [NUnit.Framework.TestCaseAttribute("Category01", "Slide01", "slide01", null)]
-        [NUnit.Framework.TestCaseAttribute("Category01", "Slide03", "slide03", null)]
-        [NUnit.Framework.TestCaseAttribute("Category03", "Slide02", "slide01", null)]
+        [NUnit.Framework.TestCaseAttribute("Category01", "Slide01", "Slide01", null)]
+        [NUnit.Framework.TestCaseAttribute("Category01", "Slide03", "Slide03", null)]
+        [NUnit.Framework.TestCaseAttribute("Category03", "Slide02", "Slide02", null)]
         public virtual void ClickOnEachTabFromWithinACarouselCategory(string category, string secondslidechoice, string assertedslide, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -130,21 +130,21 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Click on each category from the carousel widget")]
-        [NUnit.Framework.TestCaseAttribute("category01", "category01", null)]
-        [NUnit.Framework.TestCaseAttribute("category02", "category02", null)]
-        [NUnit.Framework.TestCaseAttribute("category03", "category03", null)]
+        [NUnit.Framework.TestCaseAttribute("Category01", "Category01", null)]
+        [NUnit.Framework.TestCaseAttribute("Category02", "Category02", null)]
+        [NUnit.Framework.TestCaseAttribute("Category03", "Category03", null)]
         public virtual void ClickOnEachCategoryFromTheCarouselWidget(string categoryclick, string categorydisplayed, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Click on each category from the carousel widget", null, exampleTags);
-#line 26
+#line 28
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
 this.FeatureBackground();
-#line 27
- testRunner.When(string.Format("I click on \"{0}\" tab", categoryclick), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 28
- testRunner.Then(string.Format("\"{0}\" will be displayed", categorydisplayed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 29
+ testRunner.And(string.Format("\"{0}\" tab is selected", categoryclick), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 30
+ testRunner.Then(string.Format("\"{0}\" tab will be selected", categorydisplayed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -158,16 +158,16 @@ this.FeatureBackground();
         public virtual void ClickingOnLinksFromWithinASlideWillRedirectToAnotherWebpage(string selectedcategory, string selectedslide, string link, string webpage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Clicking on links from within a slide will redirect to another webpage", null, exampleTags);
-#line 35
+#line 37
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
 this.FeatureBackground();
-#line 36
- testRunner.And(string.Format("\"{0}\" is selected with \"{1}\" selected", selectedcategory, selectedslide), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 37
- testRunner.When(string.Format("I click on the \"{0}\" link from the slide", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 38
+ testRunner.And(string.Format("\"{0}\" is selected with \"{1}\" selected", selectedcategory, selectedslide), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 39
+ testRunner.When(string.Format("I click on the \"{0}\" link from the slide", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 40
  testRunner.Then(string.Format("the \"{0}\" webpage will be opened", webpage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

@@ -6,7 +6,7 @@
 Background: 
 	Given I am on the Linklaters homepage
 
-#WIP Need to capture ID of current selected slide
+#WIP Need to capture ID of current selected slide - check assertion below?
 Scenario: Click on different tabs on the Carousel widget via the border arrows
 	When I scroll the carousel feature by clicking on the "Right" border arrow
 	And I scroll the carousel feature by clicking on the "Left" border arrow
@@ -19,18 +19,20 @@ Scenario Outline: Click on each tab from within a carousel category
 	Then "<assertedslide>" will be displayed
 	Examples:
 	|	category			|	secondslidechoice	| assertedslide	|
-	|	Category01			|	Slide01				|	slide01		|
-	| 	Category01			|	Slide03				|	slide03		|
-	|	Category03			|	Slide02				|	slide01		|
+	|	Category01			|	Slide01				|	Slide01		|
+	| 	Category01			|	Slide03				|	Slide03		|
+	|	Category03			|	Slide02				|	Slide02		|
 
+#Fails on assertions - Selected not a good way to do it.  Category element does not 
+#show aria-hidden so can't use that neither
 Scenario Outline: Click on each category from the carousel widget
-	When I click on "<categoryclick>" tab
-	Then "<categorydisplayed>" will be displayed
+	And "<categoryclick>" tab is selected
+	Then "<categorydisplayed>" tab will be selected
 	Examples:
 	|	categoryclick	|	categorydisplayed	|
-	|	category01		|	category01			|
-	|	category02		|	category02			|
-	|	category03		| 	category03			|	
+	|	Category01		|	Category01			|
+	|	Category02		|	Category02			|
+	|	Category03		| 	Category03			|	
 
 Scenario Outline: Clicking on links from within a slide will redirect to another webpage
 	And "<selectedcategory>" is selected with "<selectedslide>" selected
