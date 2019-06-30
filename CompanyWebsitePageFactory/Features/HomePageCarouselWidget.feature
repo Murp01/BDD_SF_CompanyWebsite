@@ -34,6 +34,7 @@ Scenario Outline: Click on each category from the carousel widget
 	|	Category02		|	Category02			|
 	|	Category03		| 	Category03			|	
 
+#This will change depending on the slide at the current time.  OOS
 Scenario Outline: Clicking on links from within a slide will redirect to another webpage
 	And "<selectedcategory>" is selected with "<selectedslide>" selected
 	When I click on the "<link>" link from the slide

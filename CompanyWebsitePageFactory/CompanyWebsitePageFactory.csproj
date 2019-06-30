@@ -83,6 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccordionWidget.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\ContactUsWidget.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContactUsWidget.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\FindLawyerPagePeopleSearch.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,10 +104,12 @@
       <DependentUpon>HomePageCarouselWidget.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\AboutUs.cs" />
+    <Compile Include="PageObjects\ContactUs.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\Insights.cs" />
     <Compile Include="PageObjects\Page.cs" />
     <Compile Include="StepDefinitions\AboutUsSteps.cs" />
+    <Compile Include="StepDefinitions\ContactUsFeatureSteps.cs" />
     <Compile Include="StepDefinitions\FindPeopleSteps.cs" />
     <Compile Include="StepDefinitions\HomePageSteps.cs" />
     <Compile Include="StepDefinitions\InsightsSteps.cs" />
@@ -118,6 +125,10 @@
     <None Include="Features\AccordionWidget.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>AccordionWidget.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ContactUsWidget.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ContactUsWidget.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\FindLawyerPagePeopleSearch.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

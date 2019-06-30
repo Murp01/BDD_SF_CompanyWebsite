@@ -158,16 +158,16 @@ this.FeatureBackground();
         public virtual void ClickingOnLinksFromWithinASlideWillRedirectToAnotherWebpage(string selectedcategory, string selectedslide, string link, string webpage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Clicking on links from within a slide will redirect to another webpage", null, exampleTags);
-#line 37
+#line 38
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
 this.FeatureBackground();
-#line 38
- testRunner.And(string.Format("\"{0}\" is selected with \"{1}\" selected", selectedcategory, selectedslide), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 39
- testRunner.When(string.Format("I click on the \"{0}\" link from the slide", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And(string.Format("\"{0}\" is selected with \"{1}\" selected", selectedcategory, selectedslide), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
+ testRunner.When(string.Format("I click on the \"{0}\" link from the slide", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 41
  testRunner.Then(string.Format("the \"{0}\" webpage will be opened", webpage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
