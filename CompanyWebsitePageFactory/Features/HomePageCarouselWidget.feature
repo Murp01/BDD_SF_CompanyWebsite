@@ -12,16 +12,16 @@ Scenario: Click on different tabs on the Carousel widget via the border arrows
 	And I scroll the carousel feature by clicking on the "Left" border arrow
 	Then the carousel slide will change
 
-#two of three ScenarioFail - have the slides changed and I represent them incorrectly
+#WIP Final assertion step needs to be complete
 Scenario Outline: Click on each tab from within a carousel category
 	And "<category>" tab is selected
-	#When I click on "<secondslidechoice>" tab
+	When I click on "<secondslidechoice>" tab 
 	#Then "<assertedslide>" will be displayed
 	Examples:
 	|	category			|	secondslidechoice	| assertedslide	|
-	|	Category01			|	slide01				|	slide01		|
-	| 	Category01			|	slide03				|	slide03		|
-	|	Category03			|	slide01				|	slide01		|
+	|	Category01			|	Slide01				|	slide01		|
+	| 	Category01			|	Slide03				|	slide03		|
+	|	Category03			|	Slide02				|	slide01		|
 
 Scenario Outline: Click on each category from the carousel widget
 	When I click on "<categoryclick>" tab

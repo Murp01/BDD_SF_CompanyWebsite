@@ -60,9 +60,17 @@ namespace CompanyWebsitePageFactory.PageObjects
         [CacheLookup]
         private IWebElement Tab_Carousel04 { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//div[@class='slide slick-slide slick-current slick-active']//li[@class='slick-active']//button")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='slide slick-slide slick-current slick-active']//li[1]")]
         [CacheLookup]
         private IWebElement Slide_tab01Slide01 { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//div[@class='slide slick-slide slick-current slick-active']//li[2]")]
+        [CacheLookup]
+        private IWebElement Slide_tab01Slide02 { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//div[@class='slide slick-slide slick-current slick-active']//li[3]")]
+        [CacheLookup]
+        private IWebElement Slide_tab01Slide03 { get; set; }
 
         //[FindsBy(How = How.XPath, Using = "//div[@id='slide-1f50fe22-8ba1-401d-ae6d-f7e2b60f3853']")]
         [FindsBy(How = How.XPath, Using = "//div[@class='slide slick-slide slick-current slick-active']//div[@aria-hidden='false']")]
@@ -141,6 +149,23 @@ namespace CompanyWebsitePageFactory.PageObjects
 
             }
 
+        }
+
+
+        public void selectSlideFromCarouselTab(string Slide)
+        {
+            switch (Slide)
+            {
+                case "Slide01":
+                    Slide_tab01Slide01.ClickOnIt("Clicked on " + Slide_tab01Slide01);
+                    break;
+                case "Slide02":
+                    Slide_tab01Slide02.ClickOnIt("Clicked on " + Slide_tab01Slide02);
+                    break;
+                case "Slide03":
+                    Slide_tab01Slide03.ClickOnIt("Clicked on " + Slide_tab01Slide03);
+                    break;
+            }
         }
 
     }

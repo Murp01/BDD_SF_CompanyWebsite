@@ -46,9 +46,9 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         }
 
         [When(@"I click on ""(.*)"" tab")]
-        public void WhenIClickOnTab(string p0)
+        public void WhenIClickOnTab(string Tab)
         {
-            ScenarioContext.Current.Pending();
+            Page.Home.selectSlideFromCarouselTab(Tab);
         }
 
         [Then(@"""(.*)"" will be displayed")]
