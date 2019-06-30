@@ -100,12 +100,19 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Click on each tab from within a carousel category")]
+        [NUnit.Framework.CategoryAttribute("Complete")]
         [NUnit.Framework.TestCaseAttribute("Category01", "Slide01", "slide01", null)]
         [NUnit.Framework.TestCaseAttribute("Category01", "Slide03", "slide03", null)]
         [NUnit.Framework.TestCaseAttribute("Category03", "Slide02", "slide01", null)]
         public virtual void ClickOnEachTabFromWithinACarouselCategory(string category, string secondslidechoice, string assertedslide, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Click on each tab from within a carousel category", null, exampleTags);
+            string[] @__tags = new string[] {
+                    "Complete"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Click on each tab from within a carousel category", null, @__tags);
 #line 16
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -115,6 +122,8 @@ this.FeatureBackground();
  testRunner.And(string.Format("\"{0}\" tab is selected", category), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
  testRunner.When(string.Format("I click on \"{0}\" tab", secondslidechoice), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.Then(string.Format("\"{0}\" will be displayed", assertedslide), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -142,30 +151,23 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Clicking on links from within a slide will redirect to another webpage")]
-        [NUnit.Framework.CategoryAttribute("Complete")]
         [NUnit.Framework.TestCaseAttribute("category01", "slide01", "EXPLORE", "https://www.linklaters.com/en/insights/publications/year-review-year-to-come/2018" +
             "-2019/year-in-review-2018-and-year-to-come-2019---the-world-in-2019", null)]
         [NUnit.Framework.TestCaseAttribute("category02", "slide01", "VISIT THE TRACKER", "https://www.linklaters.com/en/insights/thought-leadership/brexit/brexit-si-tracke" +
             "r", null)]
         public virtual void ClickingOnLinksFromWithinASlideWillRedirectToAnotherWebpage(string selectedcategory, string selectedslide, string link, string webpage, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "Complete"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Clicking on links from within a slide will redirect to another webpage", null, @__tags);
-#line 36
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Clicking on links from within a slide will redirect to another webpage", null, exampleTags);
+#line 35
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
 this.FeatureBackground();
-#line 37
+#line 36
  testRunner.And(string.Format("\"{0}\" is selected with \"{1}\" selected", selectedcategory, selectedslide), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 38
+#line 37
  testRunner.When(string.Format("I click on the \"{0}\" link from the slide", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 39
+#line 38
  testRunner.Then(string.Format("the \"{0}\" webpage will be opened", webpage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

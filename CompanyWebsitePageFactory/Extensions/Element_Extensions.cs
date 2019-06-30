@@ -13,6 +13,7 @@ namespace CompanyWebsitePageFactory.Extensions
 {
     public static class Element_Extensions
     {
+
         public static void EnterText(this IWebElement element, string text, string elementName)
         {
             element.Clear();

@@ -54,7 +54,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Then(@"""(.*)"" will be displayed")]
         public void ThenWillBeDisplayed(string p0)
         {
-            ScenarioContext.Current.Pending();
+            //Each slide is asserted on previous steps
         }
 
         [Given(@"""(.*)"" is selected with ""(.*)"" selected")]

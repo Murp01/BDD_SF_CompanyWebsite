@@ -12,11 +12,11 @@ Scenario: Click on different tabs on the Carousel widget via the border arrows
 	And I scroll the carousel feature by clicking on the "Left" border arrow
 	Then the carousel slide will change
 
-#WIP Final assertion step needs to be complete
+@Complete
 Scenario Outline: Click on each tab from within a carousel category
 	And "<category>" tab is selected
 	When I click on "<secondslidechoice>" tab 
-	#Then "<assertedslide>" will be displayed
+	Then "<assertedslide>" will be displayed
 	Examples:
 	|	category			|	secondslidechoice	| assertedslide	|
 	|	Category01			|	Slide01				|	slide01		|
@@ -32,7 +32,6 @@ Scenario Outline: Click on each category from the carousel widget
 	|	category02		|	category02			|
 	|	category03		| 	category03			|	
 
-@Complete
 Scenario Outline: Clicking on links from within a slide will redirect to another webpage
 	And "<selectedcategory>" is selected with "<selectedslide>" selected
 	When I click on the "<link>" link from the slide

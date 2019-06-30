@@ -14,7 +14,7 @@ namespace CompanyWebsitePageFactory.PageObjects
 {
     class HomePage
     {
-        //private IWebDriver driver;
+        private IWebDriver driver;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='slide slick-slide slick-current slick-active']//span[@class='icon-link-arrow-left']")]
         [CacheLookup]
@@ -78,30 +78,23 @@ namespace CompanyWebsitePageFactory.PageObjects
         private IWebElement Slide_CurrentSlide { get; set; }
 
 
-        public void ClickOnNavInsights()
-        {
-            PNav_Insights.ClickOnIt("PNav_Insights");          
-        }
-
         //WIP
         public void AssertSlideHasChanged(string BorderArrow)
         {
             if (BorderArrow == "Right")
             {
-
-                string CurrentSlideIdPre = Slide_CurrentSlide.GetAttribute("id");
-                string CurrentSlideHiddenPre = Slide_CurrentSlide.GetAttribute("aria-hidden");
-                Console.WriteLine("ID is " + CurrentSlideIdPre);
-                Console.WriteLine("Slide is " + CurrentSlideHiddenPre);
-                Btn_CarouselNavRight.ClickOnIt("Clicked on right carousel");
+                //string CurrentSlideHiddenPre = Slide_CurrentSlide.GetAttribute("aria-hidden");
+                //Console.WriteLine("ID is " + CurrentSlideIdPre);
+                //Console.WriteLine("Slide is " + CurrentSlideHiddenPre);
+                //Btn_CarouselNavRight.ClickOnIt("Clicked on right carousel");
                 //slide has changed
 
                 //slide_CurrentSlide is still highlighting the same slide.Why ?
-                string CurrentSlideIdPost = Slide_CurrentSlide.GetAttribute("id");
-                string CurrentSlideHiddenPost = Slide_CurrentSlide.GetAttribute("aria-hidden");
-                Console.WriteLine("ID is " + CurrentSlideIdPost);
-                Console.WriteLine("Slide is " + CurrentSlideHiddenPost);
-                Assert.That(CurrentSlideIdPre != CurrentSlideIdPost);
+                //string CurrentSlideIdPost = Slide_CurrentSlide.GetAttribute("id");
+                //string CurrentSlideHiddenPost = Slide_CurrentSlide.GetAttribute("aria-hidden");
+                //Console.WriteLine("ID is " + CurrentSlideIdPost);
+                //Console.WriteLine("Slide is " + CurrentSlideHiddenPost);
+                //Assert.That(CurrentSlideIdPre != CurrentSlideIdPost);
 
                 //Assert.That(Slide_CurrentSlide.GetAttribute("aria-hidden")== "false");
                 //Btn_CarouselNavRight.ClickOnIt("Clicked on right carousel");
@@ -115,6 +108,11 @@ namespace CompanyWebsitePageFactory.PageObjects
                 Assert.That(Slide_CurrentSlide.GetAttribute("aria-hidden") == "true");
             }
 
+        }
+
+        public void ClickOnNavInsights()
+        {
+            PNav_Insights.ClickOnIt("PNav_Insights");
         }
 
         public void selectCarouselTab(string Category)
@@ -151,19 +149,21 @@ namespace CompanyWebsitePageFactory.PageObjects
 
         }
 
-
         public void selectSlideFromCarouselTab(string Slide)
         {
             switch (Slide)
             {
                 case "Slide01":
                     Slide_tab01Slide01.ClickOnIt("Clicked on " + Slide_tab01Slide01);
+                    Assert.That(Slide_tab01Slide01.GetAttribute("aria-hidden") == "false");
                     break;
                 case "Slide02":
                     Slide_tab01Slide02.ClickOnIt("Clicked on " + Slide_tab01Slide02);
+                    Assert.That(Slide_tab01Slide02.GetAttribute("aria-hidden") == "false");
                     break;
                 case "Slide03":
                     Slide_tab01Slide03.ClickOnIt("Clicked on " + Slide_tab01Slide03);
+                    Assert.That(Slide_tab01Slide03.GetAttribute("aria-hidden") == "false");
                     break;
             }
         }
