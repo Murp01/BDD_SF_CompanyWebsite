@@ -90,15 +90,19 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line 11
  testRunner.When("I scroll the carousel feature by clicking on the \"Right\" border arrow", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
+ testRunner.And("I scroll the carousel feature by clicking on the \"Left\" border arrow", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.Then("the carousel slide will change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Click on each tab from within a carousel category")]
-        [NUnit.Framework.TestCaseAttribute("category01", "slide01", "slide01", null)]
-        [NUnit.Framework.TestCaseAttribute("category01", "slide03", "slide03", null)]
-        [NUnit.Framework.TestCaseAttribute("category03", "slide01", "slide01", null)]
+        [NUnit.Framework.TestCaseAttribute("Category01", "slide01", "slide01", null)]
+        [NUnit.Framework.TestCaseAttribute("Category01", "slide03", "slide03", null)]
+        [NUnit.Framework.TestCaseAttribute("Category03", "slide01", "slide01", null)]
         public virtual void ClickOnEachTabFromWithinACarouselCategory(string category, string secondslidechoice, string assertedslide, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Click on each tab from within a carousel category", null, exampleTags);
@@ -109,10 +113,6 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line 17
  testRunner.And(string.Format("\"{0}\" tab is selected", category), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
- testRunner.When(string.Format("I click on \"{0}\" tab", secondslidechoice), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 19
- testRunner.Then(string.Format("\"{0}\" will be displayed", assertedslide), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

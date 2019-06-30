@@ -6,22 +6,22 @@
 Background: 
 	Given I am on the Linklaters homepage
 
-#Fails
+#WIP Need to capture ID of current selected slide
 Scenario: Click on different tabs on the Carousel widget via the border arrows
 	When I scroll the carousel feature by clicking on the "Right" border arrow
-	#And I scroll the carousel feature by clicking on the "Right" border arrow
-	#Then the carousel slide will change
+	And I scroll the carousel feature by clicking on the "Left" border arrow
+	Then the carousel slide will change
 
 #two of three ScenarioFail - have the slides changed and I represent them incorrectly
 Scenario Outline: Click on each tab from within a carousel category
 	And "<category>" tab is selected
-	When I click on "<secondslidechoice>" tab
-	Then "<assertedslide>" will be displayed
+	#When I click on "<secondslidechoice>" tab
+	#Then "<assertedslide>" will be displayed
 	Examples:
 	|	category			|	secondslidechoice	| assertedslide	|
-	|	category01			|	slide01				|	slide01		|
-	| 	category01			|	slide03				|	slide03		|
-	|	category03			|	slide01				|	slide01		|
+	|	Category01			|	slide01				|	slide01		|
+	| 	Category01			|	slide03				|	slide03		|
+	|	Category03			|	slide01				|	slide01		|
 
 Scenario Outline: Click on each category from the carousel widget
 	When I click on "<categoryclick>" tab

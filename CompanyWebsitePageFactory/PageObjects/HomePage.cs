@@ -44,7 +44,7 @@ namespace CompanyWebsitePageFactory.PageObjects
         [CacheLookup]
         private IWebElement Slide_Index03 { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//div[contains(text(), 'Forward Thinking')]")]
+        [FindsBy(How = How.XPath, Using = "//p[contains(text(),'Forward Thinking')]")]
         [CacheLookup]
         private IWebElement Tab_Carousel01 { get; set; }
 
@@ -64,8 +64,8 @@ namespace CompanyWebsitePageFactory.PageObjects
         [CacheLookup]
         private IWebElement Slide_tab01Slide01 { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//div[@id='slide-1f50fe22-8ba1-401d-ae6d-f7e2b60f3853']")]
-        //[FindsBy(How = How.XPath, Using = "//div[@class='slide slick-slide slick-current slick-active']//div[@class='slick-track']")]
+        //[FindsBy(How = How.XPath, Using = "//div[@id='slide-1f50fe22-8ba1-401d-ae6d-f7e2b60f3853']")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='slide slick-slide slick-current slick-active']//div[@aria-hidden='false']")]
         [CacheLookup]
         private IWebElement Slide_CurrentSlide { get; set; }
 
@@ -75,19 +75,70 @@ namespace CompanyWebsitePageFactory.PageObjects
             PNav_Insights.ClickOnIt("PNav_Insights");          
         }
 
+        //WIP
         public void AssertSlideHasChanged(string BorderArrow)
         {
             if (BorderArrow == "Right")
-            {            
-                Assert.That(Slide_CurrentSlide.GetAttribute("aria-hidden")== "false");
+            {
+
+                string CurrentSlideIdPre = Slide_CurrentSlide.GetAttribute("id");
+                string CurrentSlideHiddenPre = Slide_CurrentSlide.GetAttribute("aria-hidden");
+                Console.WriteLine("ID is " + CurrentSlideIdPre);
+                Console.WriteLine("Slide is " + CurrentSlideHiddenPre);
                 Btn_CarouselNavRight.ClickOnIt("Clicked on right carousel");
-                Assert.That(Slide_CurrentSlide.GetAttribute("aria-hidden") == "true");
+                //slide has changed
+
+                //slide_CurrentSlide is still highlighting the same slide.Why ?
+                string CurrentSlideIdPost = Slide_CurrentSlide.GetAttribute("id");
+                string CurrentSlideHiddenPost = Slide_CurrentSlide.GetAttribute("aria-hidden");
+                Console.WriteLine("ID is " + CurrentSlideIdPost);
+                Console.WriteLine("Slide is " + CurrentSlideHiddenPost);
+                Assert.That(CurrentSlideIdPre != CurrentSlideIdPost);
+
+                //Assert.That(Slide_CurrentSlide.GetAttribute("aria-hidden")== "false");
+                //Btn_CarouselNavRight.ClickOnIt("Clicked on right carousel");
+                //Assert.That(Slide_CurrentSlide.GetAttribute("aria-hidden") == "true");
             }
             else
             {
-                IWebElement element = Slide_CurrentSlide;
-                Btn_CarouselNavLeft.ClickOnIt("Clicked on left carousel");
-                Assert.That(!element.Enabled);
+                //I think I will need to get slide id first and ensure it changes
+                Assert.That(Slide_CurrentSlide.GetAttribute("aria-hidden") == "false");
+                Btn_CarouselNavLeft.ClickOnIt("Clicked on right carousel");
+                Assert.That(Slide_CurrentSlide.GetAttribute("aria-hidden") == "true");
+            }
+
+        }
+
+        public void selectCarouselTab(string Category)
+        {
+
+            switch (Category)
+            {
+
+                case "Category01":
+
+                    Tab_Carousel01.ClickOnIt("Clicked on " + Tab_Carousel01);
+
+                    break;
+
+                case "Category02":
+
+                    Tab_Carousel02.ClickOnIt("Clicked on " + Tab_Carousel02);
+
+                    break;
+
+                case "Category03":
+
+                    Tab_Carousel03.ClickOnIt("Clicked on " + Tab_Carousel03);
+
+                    break;
+
+                case "Category04":
+
+                    Tab_Carousel04.ClickOnIt("Clicked on " + Tab_Carousel04);
+
+                    break;
+
             }
 
         }

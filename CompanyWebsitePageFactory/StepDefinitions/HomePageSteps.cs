@@ -40,9 +40,9 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         }
 
         [Given(@"""(.*)"" tab is selected")]
-        public void GivenTabIsSelected(string p0)
+        public void GivenTabIsSelected(string Category)
         {
-            ScenarioContext.Current.Pending();
+            Page.Home.selectCarouselTab(Category);
         }
 
         [When(@"I click on ""(.*)"" tab")]
