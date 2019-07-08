@@ -5,6 +5,7 @@ using CompanyWebsitePageFactory.BrowserWrapper;
 using System;
 using System.Configuration;
 using TechTalk.SpecFlow;
+using OpenQA.Selenium;
 
 namespace CompanyWebsitePageFactory.StepDefinitions
 {
@@ -33,11 +34,19 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         }
         
         [When(@"I have entered '(.*)' into the name input field")]
-        public void WhenIHaveEnteredIntoTheNameInputField(string p0)
+        public void WhenIHaveEnteredIntoTheNameInputField(string PersonName)
+        {
+            Page.FindPeople.InputSearchPersonName(PersonName);
+        }
+
+
+        [Given(@"the lawyer directory tab is selected")]
+        public void GivenTheLawyerDirectoryTabIsSelected()
         {
             ScenarioContext.Current.Pending();
         }
-        
+
+
         [When(@"I have clicked on business team directory")]
         public void WhenIHaveClickedOnBusinessTeamDirectory()
         {

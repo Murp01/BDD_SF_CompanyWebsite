@@ -82,6 +82,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I am on the Lawyer Search Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
  testRunner.And("the \"LawyerDirectory\" selector is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.When("I have entered \'Cyril Abtan\' into the name input field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }

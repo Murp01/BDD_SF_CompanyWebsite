@@ -13,6 +13,10 @@ namespace CompanyWebsitePageFactory.PageObjects
 {
     class FindPeople
     {
+        [FindsBy(How = How.XPath, Using = "//input[@placeholder='Name']")]
+        [CacheLookup]
+        public IWebElement Input_SearchPerson { get; set; }
+
         [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Business Team Directory')]")]
         [CacheLookup]
         public IWebElement Selector_BusinessTeamDirectory { get; set; }
@@ -38,6 +42,12 @@ namespace CompanyWebsitePageFactory.PageObjects
                     }
                     break;
             }
+        }
+
+        public void InputSearchPersonName(string PersonName)
+        {
+            //BrowserFactory.Driver.FindElement(By.XPath("//input[@placeholder='Name']")).SendKeys(PersonName);
+            Input_SearchPerson.SendKeys(PersonName);
         }
     }
 }
