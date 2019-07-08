@@ -65,6 +65,13 @@ namespace CompanyWebsitePageFactory.Extensions
             Console.WriteLine(text + " value selected on " + elementName);
         }
 
+        public static void JavaScriptClick()
+        {
+            //IWebDriver driver; // assume assigned elsewhere - Look into this
+            IJavaScriptExecutor js = (IJavaScriptExecutor)BrowserFactory.Driver;
+            string title = (string)js.ExecuteScript("return document.title");
+        }
+
         public static void BrowserNavigate(string nav)
         {
             switch (nav)

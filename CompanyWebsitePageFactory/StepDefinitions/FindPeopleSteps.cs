@@ -1,4 +1,7 @@
 ﻿using CompanyWebsitePageFactory.BrowserWrapper;
+using CompanyWebsitePageFactory.Extensions;
+using CompanyWebsitePageFactory.PageObjects;
+using CompanyWebsitePageFactory.BrowserWrapper;
 using System;
 using System.Configuration;
 using TechTalk.SpecFlow;
@@ -12,14 +15,16 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         public void GivenIAmOnTheLawyerSearchPage()
         {
             BrowserFactory.InitBrowser("Chrome");
-            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
+            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["FindPeople"]);
+            BrowserFactory.Driver.Manage().Window.Maximize();
         }
-        
-        [Given(@"the lawyer directory tab is selected")]
-        public void GivenTheLawyerDirectoryTabIsSelected()
+
+        [Given(@"the ""(.*)"" selector is selected")]
+        public void GivenTheSelectorIsSelected(string Selector)
         {
-            ScenarioContext.Current.Pending();
+            Page.FindPeople.ClickOnDirectorySelector(Selector);
         }
+
         
         [Given(@"the business team directory tab is selected")]
         public void GivenTheBusinessTeamDirectoryTabIsSelected()

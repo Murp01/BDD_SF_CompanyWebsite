@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="PageObjects\AboutUs.cs" />
     <Compile Include="PageObjects\ContactUs.cs" />
+    <Compile Include="PageObjects\FindPeople.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\Insights.cs" />
     <Compile Include="PageObjects\Page.cs" />

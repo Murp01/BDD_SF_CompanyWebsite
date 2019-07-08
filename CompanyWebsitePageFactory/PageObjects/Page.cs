@@ -37,6 +37,11 @@ namespace CompanyWebsitePageFactory.PageObjects
             get { return GetPage<ContactUs>(); }
         }
 
+        public static FindPeople FindPeople
+        {
+            get { return GetPage<FindPeople>(); }
+        }
+
     }
 }
 
