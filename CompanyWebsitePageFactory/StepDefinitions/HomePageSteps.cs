@@ -16,9 +16,9 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I am on the Linklaters homepage")]
         public void GivenIAmOnTheLinklatersHomepage()
         {
-            BrowserFactory.InitBrowser("Chrome");
-            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
-            BrowserFactory.Driver.Manage().Window.Maximize();
+            //BrowserFactory.InitBrowser("Chrome");
+            //BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
+            //BrowserFactory.Driver.Manage().Window.Maximize();
         }
 
         [Given(@"I click on Insights from the global navigation bar")]

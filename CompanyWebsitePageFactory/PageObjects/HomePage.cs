@@ -14,7 +14,7 @@ namespace CompanyWebsitePageFactory.PageObjects
 {
     class HomePage
     {
-        private IWebDriver driver;
+        //private IWebDriver driver;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='slide slick-slide slick-current slick-active']//span[@class='icon-link-arrow-left']")]
         [CacheLookup]

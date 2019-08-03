@@ -14,16 +14,16 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I am on the About Us page")]
         public void GivenIAmOnTheAboutUsPage()
         {
-            BrowserFactory.InitBrowser("Chrome");
+            //BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["ContactUs"]);
-            BrowserFactory.Driver.Manage().Window.Maximize();
+            //BrowserFactory.Driver.Manage().Window.Maximize();
         }
 
         [When(@"I select the ""(.*)"" location from the Contact Us drop down box")]
         public void WhenISelectTheLocationFromTheContactUsDropDownBox(string Location)
         {
             
-            Page.ContactUs.selectLocationFromDropDown(Location);
+            Page.ContactUs.SelectLocationFromDropDown(Location);
         }
         
         [Then(@"the details for the ""(.*)"" location will be displayed in the Contact Us box")]

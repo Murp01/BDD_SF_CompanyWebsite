@@ -13,18 +13,17 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I am on the About Us homepage")]
         public void GivenIAmOnTheAboutUsHomepage()
         {
-            BrowserFactory.InitBrowser("Chrome");
+            //
+            //BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["AboutUs"]);
-            BrowserFactory.Driver.Manage().Window.Maximize();
+            //BrowserFactory.Driver.Manage().Window.Maximize();
         }
 
         [When(@"I click on each ""(.*)"" accordion segment")]
         public void WhenIClickOnEachAccordionSegment(string ClosedAccordion)
         {
             Page.AboutUs.AccordionCheckOpenCloseThenClick(ClosedAccordion);
-            
         }
-
 
         [Then(@"the correct content will be displayed")]
         public void ThenTheCorrectContentWillBeDisplayed()

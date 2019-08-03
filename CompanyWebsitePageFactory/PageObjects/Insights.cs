@@ -14,8 +14,6 @@ namespace CompanyWebsitePageFactory.PageObjects
     {
         //private IWebDriver driver;
 
-
-
         [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Reset search')]")]
         [CacheLookup]
         public IWebElement Btn_Reset { get; set; }

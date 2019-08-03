@@ -109,6 +109,7 @@
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\Insights.cs" />
     <Compile Include="PageObjects\Page.cs" />
+    <Compile Include="Runner\CucumberTestRunner.cs" />
     <Compile Include="StepDefinitions\AboutUsSteps.cs" />
     <Compile Include="StepDefinitions\ContactUsFeatureSteps.cs" />
     <Compile Include="StepDefinitions\FindPeopleSteps.cs" />

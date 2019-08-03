@@ -15,8 +15,6 @@ namespace CompanyWebsitePageFactory.PageObjects
 {
     class AboutUs
     {
-        private object container_Accordion02;
-
         [FindsBy(How = How.CssSelector, Using = "#container-special-offers")]
         [CacheLookup]
         public IWebElement button_SpecialOffers { get; set; }

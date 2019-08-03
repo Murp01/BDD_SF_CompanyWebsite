@@ -1,20 +1,12 @@
-﻿using CompanyWebsitePageFactory.BrowserWrapper;
-using CompanyWebsitePageFactory.Extensions;
+﻿using CompanyWebsitePageFactory.Extensions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace CompanyWebsitePageFactory.PageObjects
 {
     class ContactUs
     {
-        private IWebDriver driver;
+        //private IWebDriver driver;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='mapContact__controlContainer bg-brand-magenta-dark']")]
         [CacheLookup]
@@ -29,7 +21,7 @@ namespace CompanyWebsitePageFactory.PageObjects
         private IWebElement Btn_LocationDropdown { get; set; }
 
 
-        public void selectLocationFromDropDown(string location)
+        public void SelectLocationFromDropDown(string location)
         {
             Btn_LocationDropdown.ClickOnIt("Clicked on dropdown button");
             Option_LocationDropdown.SelectByText(location, location);
