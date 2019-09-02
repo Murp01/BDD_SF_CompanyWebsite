@@ -15,15 +15,15 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I am on the Lawyer Search Page")]
         public void GivenIAmOnTheLawyerSearchPage()
         {
-            //BrowserFactory.InitBrowser("Chrome");
+            BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["FindPeople"]);
-            //BrowserFactory.Driver.Manage().Window.Maximize();
+            BrowserFactory.Driver.Manage().Window.Maximize();
         }
 
         [Given(@"the ""(.*)"" selector is selected")]
         public void GivenTheSelectorIsSelected(string Selector)
         {
-            Page.FindPeople.ClickOnDirectorySelector(Selector);
+            DotCom.FindPeople.ClickOnDirectorySelector(Selector);
         }
 
         
@@ -36,7 +36,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [When(@"I have entered '(.*)' into the name input field")]
         public void WhenIHaveEnteredIntoTheNameInputField(string PersonName)
         {
-            Page.FindPeople.InputSearchPersonName(PersonName);
+            DotCom.FindPeople.InputSearchPersonName(PersonName);
         }
 
 

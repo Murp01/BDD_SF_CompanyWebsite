@@ -24,13 +24,13 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I click on Insights from the global navigation bar")]
         public void GivenIClickOnInsightsFromTheGlobalNavigationBar()
         {
-            Page.Home.ClickOnNavInsights();           
+            DotCom.Home.ClickOnNavInsights();           
         }
 
         [When(@"I scroll the carousel feature by clicking on the ""(.*)"" border arrow")]
         public void WhenIScrollTheCarouselFeatureByClickingOnTheBorderArrow(string BorderArrow)
         {
-            Page.Home.AssertSlideHasChanged(BorderArrow);
+            DotCom.Home.AssertSlideHasChanged(BorderArrow);
         }
 
         [Then(@"the carousel slide will change")]
@@ -42,25 +42,25 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"""(.*)"" tab is selected")]
         public void GivenTabIsSelected(string Category)
         {
-            Page.Home.selectCarouselTab(Category);
+            DotCom.Home.selectCarouselTab(Category);
         }
 
         [When(@"I click on ""(.*)"" tab")]
         public void WhenIClickOnTab(string Tab)
         {
-            Page.Home.selectSlideFromCarouselTab(Tab);
+            DotCom.Home.selectSlideFromCarouselTab(Tab);
         }
 
         [Then(@"""(.*)"" will be displayed")]
         public void ThenWillBeDisplayed(string Category)
         {
-            Page.Home.AssertSlideFromCarouselChanged(Category);
+            DotCom.Home.AssertSlideFromCarouselChanged(Category);
         }
 
         [Then(@"""(.*)"" tab will be selected")]
         public void ThenTabWillBeSelected(string Category)
         {
-            Page.Home.AssertCorrectTabIsDisplayed(Category);
+            DotCom.Home.AssertCorrectTabIsDisplayed(Category);
         }
 
 

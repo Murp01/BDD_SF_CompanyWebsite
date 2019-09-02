@@ -1,20 +1,16 @@
-﻿using CompanyWebsitePageFactory.BrowserWrapper;
-using CompanyWebsitePageFactory.Extensions;
+﻿using CompanyWebsitePageFactory.Extensions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace CompanyWebsitePageFactory.PageObjects
 {
     class AboutUs
     {
+        private IWebDriver chromeDriver;
+
         [FindsBy(How = How.CssSelector, Using = "#container-special-offers")]
         [CacheLookup]
         public IWebElement button_SpecialOffers { get; set; }
@@ -176,6 +172,7 @@ namespace CompanyWebsitePageFactory.PageObjects
                     switch (link)
                     {
                         case ("ResponsibleBusinessSection"):
+                            System.Threading.Thread.Sleep(3000);
                             href_ResponsibleBusinessSection.ClickOnIt("Clicked on " + link + " from " + section + ".");
                             break;
                         case ("Add new"):

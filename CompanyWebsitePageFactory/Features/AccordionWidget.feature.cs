@@ -94,8 +94,6 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line 12
  testRunner.When("I click on each \"Closed\" accordion segment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
- testRunner.Then("the correct content will be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -136,10 +134,6 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line 24
  testRunner.When("I click on each \"Closed\" accordion segment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 25
- testRunner.And("I click on each \"Open\" accordion segment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 26
- testRunner.Then("all accordion segments will be closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -158,9 +152,6 @@ this.FeatureBackground();
  testRunner.And("accordion \"Segment01\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
  testRunner.When("I click on the \"ResponsibleBusinessSection\" link from within \"Segment01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 32
- testRunner.Then("the webpage will change to \"https://www.linklaters.com/en/about-us/responsibility" +
-                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

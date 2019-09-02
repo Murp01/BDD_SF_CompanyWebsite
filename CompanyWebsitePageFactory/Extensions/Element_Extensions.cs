@@ -1,13 +1,8 @@
 ﻿using CompanyWebsitePageFactory.BrowserWrapper;
-using CompanyWebsitePageFactory.PageObjects;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CompanyWebsitePageFactory.Extensions
 {
@@ -40,8 +35,16 @@ namespace CompanyWebsitePageFactory.Extensions
 
         public static void ClickOnIt(this IWebElement element, string elementName)
         {
-            element.Click();
-            Console.WriteLine("Clicked on " + elementName);
+            if (element.Displayed)
+            {
+                element.Click();
+                Console.WriteLine("Clicked on " + elementName);
+            }
+            else
+            {
+                Console.WriteLine("Element not displayed");
+            }
+
         }
 
         public static void SelectByText(this IWebElement element, string text, string elementName)
@@ -88,6 +91,16 @@ namespace CompanyWebsitePageFactory.Extensions
                     break;                  
             }
             Console.WriteLine("Browser Navigated " + nav);
+        }
+
+        public static IWebElement FindElement(this IWebDriver driver, By by, int timeoutInSeconds)
+        {
+            if (timeoutInSeconds > 0)
+            {
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
+                return wait.Until(drv => drv.FindElement(by));
+            }
+            return driver.FindElement(by);
         }
 
     }

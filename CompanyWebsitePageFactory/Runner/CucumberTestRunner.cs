@@ -7,7 +7,7 @@ namespace CompanyWebsitePageFactory.Runner
     [Binding]
     public class CucumberTestRunner
     {
-        [Before]
+        //[Before]
         public void ScenarioSetup()
         {
             //start driver
@@ -16,7 +16,7 @@ namespace CompanyWebsitePageFactory.Runner
             BrowserFactory.Driver.Manage().Window.Maximize();
         }
 
-        [After]
+        //[After]
         public void ScenarioTeardown()
         {
             BrowserFactory.CloseAllDrivers();

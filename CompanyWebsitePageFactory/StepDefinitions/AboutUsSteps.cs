@@ -14,27 +14,27 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         public void GivenIAmOnTheAboutUsHomepage()
         {
             //
-            //BrowserFactory.InitBrowser("Chrome");
+            BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["AboutUs"]);
-            //BrowserFactory.Driver.Manage().Window.Maximize();
+            BrowserFactory.Driver.Manage().Window.Maximize();
         }
 
         [When(@"I click on each ""(.*)"" accordion segment")]
         public void WhenIClickOnEachAccordionSegment(string ClosedAccordion)
         {
-            Page.AboutUs.AccordionCheckOpenCloseThenClick(ClosedAccordion);
+            DotCom.AboutUs.AccordionCheckOpenCloseThenClick(ClosedAccordion);
         }
 
         [Then(@"the correct content will be displayed")]
         public void ThenTheCorrectContentWillBeDisplayed()
         {
-            Page.AboutUs.assertAccordionTextField();
+            DotCom.AboutUs.assertAccordionTextField();
         }
 
         [Given(@"accordion ""(.*)"" is open")]
         public void GivenAccordionIsOpen(string segment)
         {
-            Page.AboutUs.assertAccordionTabOpenElseClickToOpen(segment);
+            DotCom.AboutUs.assertAccordionTabOpenElseClickToOpen(segment);
         }
 
         [When(@"I click on the browsers ""(.*)"" navigation button")]
@@ -46,7 +46,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Then(@"all accordion segments will be closed")]
         public void ThenAllAccordionSegmentsWillBeClosed()
         {
-            Page.AboutUs.assertAllAccordionTabsAreClosed();
+            DotCom.AboutUs.assertAllAccordionTabsAreClosed();
         }
 
         [Given(@"""(.*)"" is open")]
@@ -58,13 +58,13 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [When(@"I click on the ""(.*)"" link from within ""(.*)""")]
         public void WhenIClickOnTheLinkFromWithin(string link, string section)
         {
-            Page.AboutUs.clickOnLinkWithinAccordionTextbox(link, section);
+            DotCom.AboutUs.clickOnLinkWithinAccordionTextbox(link, section);
         }
 
         [Then(@"the webpage will change to ""(.*)""")]
         public void ThenTheWebpageWillChangeTo(string p0)
         {
-            ScenarioContext.Current.Pending();
+            
         }
 
 

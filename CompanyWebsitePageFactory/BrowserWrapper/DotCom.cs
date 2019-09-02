@@ -1,14 +1,10 @@
 ﻿using CompanyWebsitePageFactory.BrowserWrapper;
 using OpenQA.Selenium.Support.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CompanyWebsitePageFactory.PageObjects
 {
-    class Page
+    class DotCom
     {
         private static T GetPage<T>() where T : new()
         {
@@ -40,6 +36,11 @@ namespace CompanyWebsitePageFactory.PageObjects
         public static FindPeople FindPeople
         {
             get { return GetPage<FindPeople>(); }
+        }
+
+        public static PrimaryNavigation PrimaryNavigation
+        {
+            get { return GetPage<PrimaryNavigation>(); }
         }
 
     }

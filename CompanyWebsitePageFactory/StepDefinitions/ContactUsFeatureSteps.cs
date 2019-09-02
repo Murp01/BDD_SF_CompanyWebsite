@@ -23,7 +23,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         public void WhenISelectTheLocationFromTheContactUsDropDownBox(string Location)
         {
             
-            Page.ContactUs.SelectLocationFromDropDown(Location);
+            DotCom.ContactUs.SelectLocationFromDropDown(Location);
         }
         
         [Then(@"the details for the ""(.*)"" location will be displayed in the Contact Us box")]

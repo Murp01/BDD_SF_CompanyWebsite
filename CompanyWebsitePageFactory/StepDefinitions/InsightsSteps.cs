@@ -14,7 +14,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [When(@"I enter a search term into Insights name search box")]
         public void WhenIEnterASearchTermIntoInsightsNameSearchBox()
         {
-            Page.Insight.SearchAndReset();
+            DotCom.Insight.SearchAndReset();
         }
         
         [Then(@"all results containing the search box will appear")]
@@ -26,7 +26,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [When(@"I select '(.*)' from the Year drop down box")]
         public void WhenISelectFromTheYearDropDownBox(string Year)
         {
-            Page.Insight.FilterByYear(Year);
+            DotCom.Insight.FilterByYear(Year);
         }
 
     }
