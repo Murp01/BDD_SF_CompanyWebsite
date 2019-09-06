@@ -3,12 +3,12 @@
 	widget.  The Person search has multiple filters and 
 	searches across business teams and lawyers
 
-@mytag
+
 Scenario: I use Lawyer search to locate a Lawyer contact
 	Given I am on the Lawyer Search Page
-	And the lawyer directory tab is selected
+	And the "LawyerDirectory" selector is selected
 	When I have entered 'Cyril Abtan' into the name input field
-	Then all profiles displayed on the screen will contain 'Cyril Abtan'
+	#Then all profiles displayed on the screen will contain 'Cyril Abtan'
 
 Scenario: I switch from Lawyer contacts to Business Team contacts
 	Given I am on the Lawyer Search Page

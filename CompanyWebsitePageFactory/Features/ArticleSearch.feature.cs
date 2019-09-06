@@ -24,7 +24,7 @@ namespace CompanyWebsitePageFactory.Features
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "SpecFlowFeature1.feature"
+#line 1 "ArticleSearch.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -69,6 +69,16 @@ namespace CompanyWebsitePageFactory.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 4
+#line 5
+ testRunner.Given("I am on the Linklaters homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 6
+ testRunner.And("I click on Insights from the global navigation bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Use a search term that will return a large volume of articles")]
         [NUnit.Framework.CategoryAttribute("mytag")]
@@ -76,15 +86,27 @@ namespace CompanyWebsitePageFactory.Features
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Use a search term that will return a large volume of articles", null, new string[] {
                         "mytag"});
-#line 6
+#line 10
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 7
- testRunner.Given("I am on the Linklaters homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
- testRunner.And("I click on Insights from the global navigation bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
+#line 4
+this.FeatureBackground();
+#line 11
  testRunner.When("I enter a search term into Insights name search box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("I filter the Insights results to show articles from 2018")]
+        public virtual void IFilterTheInsightsResultsToShowArticlesFrom2018()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I filter the Insights results to show articles from 2018", null, ((string[])(null)));
+#line 15
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 4
+this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }

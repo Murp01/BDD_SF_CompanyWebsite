@@ -77,22 +77,52 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrowserWrapper\BrowserFactory.cs" />
+    <Compile Include="Extensions\Element_Extensions.cs" />
+    <Compile Include="Features\AccordionWidget.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccordionWidget.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ContactUsWidget.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContactUsWidget.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\FindLawyerPagePeopleSearch.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FindLawyerPagePeopleSearch.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\SpecFlowFeature1.feature.cs">
+    <Compile Include="Features\ArticleSearch.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
+      <DependentUpon>ArticleSearch.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\HomePageCarouselWidget.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomePageCarouselWidget.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PrimaryNavigation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrimaryNavigation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="PageObjects\AboutUs.cs" />
+    <Compile Include="PageObjects\ContactUs.cs" />
+    <Compile Include="PageObjects\FindPeople.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\Insights.cs" />
-    <Compile Include="PageObjects\Page.cs" />
+    <Compile Include="BrowserWrapper\DotCom.cs" />
+    <Compile Include="PageObjects\PrimaryNavigation.cs" />
+    <Compile Include="Runner\CucumberTestRunner.cs" />
+    <Compile Include="StepDefinitions\AboutUsSteps.cs" />
+    <Compile Include="StepDefinitions\ContactUsFeatureSteps.cs" />
+    <Compile Include="StepDefinitions\FindPeopleSteps.cs" />
     <Compile Include="StepDefinitions\HomePageSteps.cs" />
     <Compile Include="StepDefinitions\InsightsSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepDefinitions\PrimaryNavigationBarSteps.cs" />
     <Compile Include="TestDataAccess\ExcelDataAccess.cs" />
     <Compile Include="TestDataAccess\UserData.cs" />
   </ItemGroup>
@@ -101,13 +131,29 @@
     <None Include="Configurations\Environment.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Features\AccordionWidget.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AccordionWidget.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ContactUsWidget.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ContactUsWidget.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\FindLawyerPagePeopleSearch.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FindLawyerPagePeopleSearch.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\SpecFlowFeature1.feature">
+    <None Include="Features\ArticleSearch.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
+      <LastGenOutput>ArticleSearch.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\HomePageCarouselWidget.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>HomePageCarouselWidget.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\PrimaryNavigation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PrimaryNavigation.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="TestDataAccess\TestData.xlsx" />
