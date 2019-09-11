@@ -7,18 +7,21 @@ namespace CompanyWebsitePageFactory.Runner
     [Binding]
     public class CucumberTestRunner
     {
-        //[Before]
+        [Before]
         public void ScenarioSetup()
         {
             //start driver
             BrowserFactory.InitBrowser("Chrome");
-            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
             BrowserFactory.Driver.Manage().Window.Maximize();
+            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
         }
 
-        //[After]
+        [After]
         public void ScenarioTeardown()
         {
+
+
+
             BrowserFactory.CloseAllDrivers();
         }
     }

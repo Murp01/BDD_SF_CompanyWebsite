@@ -22,7 +22,6 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [When(@"I select the ""(.*)"" location from the Contact Us drop down box")]
         public void WhenISelectTheLocationFromTheContactUsDropDownBox(string Location)
         {
-            
             DotCom.ContactUs.SelectLocationFromDropDown(Location);
         }
         

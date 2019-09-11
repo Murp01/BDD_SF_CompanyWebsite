@@ -10,9 +10,8 @@ namespace CompanyWebsitePageFactory.BrowserWrapper
 {
     class BrowserFactory
     {
-        private static readonly IDictionary<string, IWebDriver> Drivers = new Dictionary<string, IWebDriver>();
         private static IWebDriver driver;
-
+        
         public static IWebDriver Driver 
         {
             get
@@ -27,33 +26,20 @@ namespace CompanyWebsitePageFactory.BrowserWrapper
             }
         }
 
-
         public static void InitBrowser(string browserName)
         {
             switch (browserName)
             {
                 case "Firefox":
-                    if (driver == null)
-                    {
-                        driver = new FirefoxDriver();
-                        Drivers.Add("Firefox", Driver);
-                    }
+                    driver = new FirefoxDriver();
                     break;
 
                 case "IE":
-                    if (driver == null)
-                    {
-                        driver = new InternetExplorerDriver(@"C:\Webdriver");
-                        Drivers.Add("IE", Driver);
-                    }
+                    driver = new InternetExplorerDriver(@"C:\Webdriver");
                     break;
 
                 case "Chrome":
-                    if (driver == null)
-                    {
-                        driver = new ChromeDriver();
-                        Drivers.Add("Chrome", Driver);
-                    }
+                    driver = new ChromeDriver();
                     break;
             }
         }
@@ -65,11 +51,8 @@ namespace CompanyWebsitePageFactory.BrowserWrapper
 
         public static void CloseAllDrivers()
         {
-            foreach (var key in Drivers.Keys)
-            {
-                Drivers[key].Close();
-                Drivers[key].Quit();
-            }
+            Driver.Close();
+            Driver.Quit();
         }
     }
 
