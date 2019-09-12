@@ -13,15 +13,12 @@ namespace CompanyWebsitePageFactory.Runner
             //start driver
             BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.Driver.Manage().Window.Maximize();
-            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
+            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
         }
 
         [After]
         public void ScenarioTeardown()
         {
-
-
-
             BrowserFactory.CloseAllDrivers();
         }
     }

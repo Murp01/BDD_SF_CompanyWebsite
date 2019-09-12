@@ -16,7 +16,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         public void GivenIAmOnTheLawyerSearchPage()
         {
             //BrowserFactory.InitBrowser("Chrome");
-            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["FindPeople"]);
+            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["FindPeople"]);
             //BrowserFactory.Driver.Manage().Window.Maximize();
         }
 

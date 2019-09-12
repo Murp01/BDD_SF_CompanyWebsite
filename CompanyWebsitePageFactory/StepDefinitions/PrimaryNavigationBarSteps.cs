@@ -12,7 +12,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I access the websites homepage")]
         public void GivenIAccessTheWebsitesHomepage()
         {
-            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["AboutUs"]);
+            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["AboutUs"]);
         }
         
         [Given(@"I am on the ""(.*)"" page")]

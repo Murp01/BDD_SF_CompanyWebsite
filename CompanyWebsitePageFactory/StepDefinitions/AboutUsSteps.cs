@@ -14,7 +14,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         public void GivenIAmOnTheAboutUsHomepage()
         {
             //BrowserFactory.InitBrowser("Chrome");
-            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["AboutUs"]);
+            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["AboutUs"]);
             //BrowserFactory.Driver.Manage().Window.Maximize();
         }
 

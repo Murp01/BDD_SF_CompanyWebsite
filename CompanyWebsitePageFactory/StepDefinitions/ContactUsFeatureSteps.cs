@@ -15,7 +15,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         public void GivenIAmOnTheAboutUsPage()
         {
             //BrowserFactory.InitBrowser("Chrome");
-            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["ContactUs"]);
+            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["ContactUs"]);
             //BrowserFactory.Driver.Manage().Window.Maximize();
         }
 

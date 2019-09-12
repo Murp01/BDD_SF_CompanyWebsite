@@ -17,7 +17,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         public void GivenIAmOnTheLinklatersHomepage()
         {
             //BrowserFactory.InitBrowser("Chrome");
-            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
+            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
             //BrowserFactory.Driver.Manage().Window.Maximize();
         }
 

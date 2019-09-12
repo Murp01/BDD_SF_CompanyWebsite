@@ -44,7 +44,7 @@ namespace CompanyWebsitePageFactory.BrowserWrapper
             }
         }
 
-        public static void LoadApplication(string url)
+        public static void GoToURL(string url)
         {
             Driver.Url = url;
         }
