@@ -10,7 +10,6 @@ namespace CompanyWebsitePageFactory.Runner
         [Before]
         public void ScenarioSetup()
         {
-            //start driver
             BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.Driver.Manage().Window.Maximize();
             BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);

@@ -1,4 +1,5 @@
 ﻿using CompanyWebsitePageFactory.Extensions;
+using CompanyWebsitePageFactory.BrowserWrapper;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -55,7 +56,7 @@ namespace CompanyWebsitePageFactory.PageObjects
                 case "Closed":
                     if (Container_Accordion01.GetAttribute("style").Contains("none"))
                     {
-                        //tab_Accordion01.ClickOnIt("Accordion01");  
+                        tab_Accordion01.ClickOnIt("Accordion01");  
                     }
                     else
                     {

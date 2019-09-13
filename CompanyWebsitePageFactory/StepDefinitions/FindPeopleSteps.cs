@@ -15,9 +15,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I am on the Lawyer Search Page")]
         public void GivenIAmOnTheLawyerSearchPage()
         {
-            //BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.GoToURL(ConfigurationManager.AppSettings["FindPeople"]);
-            //BrowserFactory.Driver.Manage().Window.Maximize();
         }
 
         [Given(@"the ""(.*)"" selector is selected")]

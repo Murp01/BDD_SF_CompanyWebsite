@@ -14,9 +14,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I am on the About Us page")]
         public void GivenIAmOnTheAboutUsPage()
         {
-            //BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.GoToURL(ConfigurationManager.AppSettings["ContactUs"]);
-            //BrowserFactory.Driver.Manage().Window.Maximize();
         }
 
         [When(@"I select the ""(.*)"" location from the Contact Us drop down box")]

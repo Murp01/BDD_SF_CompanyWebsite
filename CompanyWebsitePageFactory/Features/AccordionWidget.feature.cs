@@ -134,6 +134,10 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line 24
  testRunner.When("I click on each \"Closed\" accordion segment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+ testRunner.And("I click on each \"Open\" accordion segment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.Then("all accordion segments will be closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

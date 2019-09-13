@@ -22,8 +22,8 @@ Scenario: Upon arriving on the page the accordion will be closed by default
 #Test fails on And I click on each open accordion.  I need JSExecutor extension method
 Scenario: Close all segments of the accordion widget
 	When I click on each "Closed" accordion segment
-	#And I click on each "Open" accordion segment
-	#Then all accordion segments will be closed
+	And I click on each "Open" accordion segment
+	Then all accordion segments will be closed
 
 #fails: Does not find the responsiblebusinessselection link - need a wait for click on link step
 Scenario:  All links within accordion's content will direct to the correct destination page
