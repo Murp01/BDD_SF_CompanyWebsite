@@ -56,6 +56,10 @@
     <Reference Include="nunit.framework, Version=3.0.5797.27534, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.0.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="RelevantCodes.ExtentReports, Version=1.4.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExtentReports.2.41.0\lib\RelevantCodes.ExtentReports.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -116,6 +120,8 @@
     <Compile Include="PageObjects\Insights.cs" />
     <Compile Include="BrowserWrapper\DotCom.cs" />
     <Compile Include="PageObjects\PrimaryNavigation.cs" />
+    <Compile Include="Reports\ReportingManager.cs" />
+    <Compile Include="Reports\ReportingTasks.cs" />
     <Compile Include="Runner\CucumberTestRunner.cs" />
     <Compile Include="StepDefinitions\AboutUsSteps.cs" />
     <Compile Include="StepDefinitions\ContactUsFeatureSteps.cs" />
