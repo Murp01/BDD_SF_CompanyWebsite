@@ -1,43 +1,78 @@
 ﻿using CompanyWebsitePageFactory.BrowserWrapper;
 using System.Configuration;
 using TechTalk.SpecFlow;
-using RelevantCodes.ExtentReports; //reporting addition
-using CompanyWebsitePageFactory.Reports; //reporting addition
+using TechTalk.SpecFlow.Assist;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using AventStack.ExtentReports.Gherkin.Model;
+
 
 
 namespace CompanyWebsitePageFactory.Runner
 {
     [Binding]
-    public class CucumberTestRunner
+    public class CucumberTestRunner //rename to hooks?
     {
-        private static ReportingTasks _reportingTasks; //reporting addition
+        private static ExtentTest featureName;
+        private static ExtentTest scenario;
+        private static ExtentReports extent;
+
+        [BeforeTestRun]
+        public static void InitializeReport()
+        {
+            //Create Html Report
+            var htmlReporter = new ExtentHtmlReporter(@"C:\\ExtentReports");
+            htmlReporter.Configuration().Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
+
+            //Create Extent report instance variable
+            extent = new ExtentReports();
+            extent.AttachReporter(htmlReporter);           
+        }
+
+
+        [AfterTestRun]
+        public static void TearDownReport()
+        {
+            extent.Flush();
+        }
+
+
+        [BeforeFeature]
+        public static void BeforeFeature()
+        {
+            featureName = extent.CreateTest<Feature>(FeatureContext.Current.FeatureInfo.Title);
+
+        }
+
+
+        [AfterStep]
+        public void InsertReportingSteps()
+        {
+            scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
+        }
+
+        [BeforeScenario]
+        public void Initialize()
+        {
+            //SelectBrowser(BrowserType.Chrome);
+            scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
+        }
+
 
         [Before]
         public void ScenarioSetup()
         {
-
-            ExtentReports extentReports = ReportingManager.Instance;
-
-            //extentReports.LoadConfig(Directory.GetParent(TestContext.CurrentContext.TestDirectory).Parent.FullName + "\\extent-config.xml");
-
-            //Note we have hardcoded the browser, we will deal with this later
-
-            extentReports.AddSystemInfo("Browser", "Chrome");
-
-
-
-            _reportingTasks = new ReportingTasks(extentReports);
-
-
             BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.Driver.Manage().Window.Maximize();
             BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
+            scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
         }
 
         [After]
         public void ScenarioTeardown()
         {
-            _reportingTasks.FinalizeTest(); //reporting addition
             BrowserFactory.CloseAllDrivers();
         }
     }
