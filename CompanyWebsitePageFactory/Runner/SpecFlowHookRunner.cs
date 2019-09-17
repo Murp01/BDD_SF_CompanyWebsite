@@ -13,7 +13,7 @@ using AventStack.ExtentReports.Gherkin.Model;
 namespace CompanyWebsitePageFactory.Runner
 {
     [Binding]
-    public class SpecflowHookRunner //rename to hooks?
+    public class SpecflowHookRunner
     {
         private static ExtentTest featureName;
         private static ExtentTest scenario;
@@ -23,12 +23,44 @@ namespace CompanyWebsitePageFactory.Runner
         public static void InitializeReport()
         {
             //Create Html Report
-            var htmlReporter = new ExtentHtmlReporter(@"C:\\ExtentReports");
+            var htmlReporter = new ExtentHtmlReporter(@"C:\ExtentReports\ExtentReport.html");
             htmlReporter.Configuration().Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
 
             //Create Extent report instance variable
             extent = new ExtentReports();
             extent.AttachReporter(htmlReporter);           
+        }
+
+
+        [BeforeFeature]
+        public static void BeforeFeature()
+        {
+            featureName = extent.CreateTest<Feature>(FeatureContext.Current.FeatureInfo.Title);
+        }
+
+
+        [BeforeScenario]
+        public void Initialize()
+        {
+            BrowserFactory.InitBrowser("Chrome");
+            BrowserFactory.GetDriver.Manage().Window.Maximize();
+            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
+            //SelectBrowser(BrowserType.Chrome);
+            scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
+        }
+
+
+        [AfterStep]
+        public void InsertReportingSteps()
+        {
+            scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
+        }
+
+
+        [AfterScenario]
+        public void CloseScenario()
+        {
+            BrowserFactory.CloseAllDrivers();
         }
 
 
@@ -39,41 +71,22 @@ namespace CompanyWebsitePageFactory.Runner
         }
 
 
-        [BeforeFeature]
-        public static void BeforeFeature()
-        {
-            featureName = extent.CreateTest<Feature>(FeatureContext.Current.FeatureInfo.Title);
+        //[Before]
+        //public void ScenarioSetup()
+        //{
+        //    BrowserFactory.InitBrowser("Chrome");
+        //    BrowserFactory.GetDriver.Manage().Window.Maximize();
+        //    BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
+        //    scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
+        //}
 
-        }
-
-
-        [AfterStep]
-        public void InsertReportingSteps()
-        {
-            scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
-        }
-
-        [BeforeScenario]
-        public void Initialize()
-        {
-            //SelectBrowser(BrowserType.Chrome);
-            scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
-        }
+        //[After]
+        //public void ScenarioTeardown()
+        //{
+        //    BrowserFactory.CloseAllDrivers();
+        //}
 
 
-        [Before]
-        public void ScenarioSetup()
-        {
-            BrowserFactory.InitBrowser("Chrome");
-            BrowserFactory.GetDriver.Manage().Window.Maximize();
-            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
-            scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
-        }
 
-        [After]
-        public void ScenarioTeardown()
-        {
-            BrowserFactory.CloseAllDrivers();
-        }
     }
 }
