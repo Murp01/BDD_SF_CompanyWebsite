@@ -13,7 +13,7 @@ using AventStack.ExtentReports.Gherkin.Model;
 namespace CompanyWebsitePageFactory.Runner
 {
     [Binding]
-    public class CucumberTestRunner //rename to hooks?
+    public class SpecflowHookRunner //rename to hooks?
     {
         private static ExtentTest featureName;
         private static ExtentTest scenario;
@@ -65,7 +65,7 @@ namespace CompanyWebsitePageFactory.Runner
         public void ScenarioSetup()
         {
             BrowserFactory.InitBrowser("Chrome");
-            BrowserFactory.Driver.Manage().Window.Maximize();
+            BrowserFactory.GetDriver.Manage().Window.Maximize();
             BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
             scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
         }

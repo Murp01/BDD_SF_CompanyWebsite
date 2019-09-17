@@ -89,14 +89,14 @@ namespace CompanyWebsitePageFactory.Extensions
             switch (nav)
             {
                 case ("Forward"):
-                    BrowserFactory.Driver.Navigate().Forward();
+                    BrowserFactory.GetDriver.Navigate().Forward();
                     
                     break;
                 case ("Back"):
-                    BrowserFactory.Driver.Navigate().Back();
+                    BrowserFactory.GetDriver.Navigate().Back();
                     break;
                 case ("Refresh"):
-                    BrowserFactory.Driver.Navigate().Refresh();
+                    BrowserFactory.GetDriver.Navigate().Refresh();
                     break;                  
             }
             Console.WriteLine("Browser Navigated " + nav);

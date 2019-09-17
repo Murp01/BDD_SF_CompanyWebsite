@@ -9,7 +9,7 @@ namespace CompanyWebsitePageFactory.PageObjects
         private static T GetPage<T>() where T : new()
         {
             var page = new T();
-            PageFactory.InitElements(BrowserFactory.Driver, page);
+            PageFactory.InitElements(BrowserFactory.GetDriver, page);
             return page;
         }
 

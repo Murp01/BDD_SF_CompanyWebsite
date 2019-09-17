@@ -12,7 +12,7 @@ namespace CompanyWebsitePageFactory.BrowserWrapper
     {
         private static IWebDriver driver;
         
-        public static IWebDriver Driver 
+        public static IWebDriver GetDriver 
         {
             get
             {
@@ -46,13 +46,13 @@ namespace CompanyWebsitePageFactory.BrowserWrapper
 
         public static void GoToURL(string url)
         {
-            Driver.Url = url;
+            GetDriver.Url = url;
         }
 
         public static void CloseAllDrivers()
         {
-            Driver.Close();
-            Driver.Quit();
+            GetDriver.Close();
+            GetDriver.Quit();
         }
     }
 

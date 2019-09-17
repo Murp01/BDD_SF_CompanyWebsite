@@ -157,9 +157,7 @@
     <Compile Include="PageObjects\Insights.cs" />
     <Compile Include="BrowserWrapper\DotCom.cs" />
     <Compile Include="PageObjects\PrimaryNavigation.cs" />
-    <Compile Include="Reports\ReportingManager.cs" />
-    <Compile Include="Reports\ReportingTasks.cs" />
-    <Compile Include="Runner\CucumberTestRunner.cs" />
+    <Compile Include="Runner\SpecflowHookRunner.cs" />
     <Compile Include="StepDefinitions\AboutUsSteps.cs" />
     <Compile Include="StepDefinitions\ContactUsFeatureSteps.cs" />
     <Compile Include="StepDefinitions\FindPeopleSteps.cs" />
