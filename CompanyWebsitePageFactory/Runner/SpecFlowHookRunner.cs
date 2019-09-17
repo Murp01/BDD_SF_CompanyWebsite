@@ -7,6 +7,8 @@ using NUnit.Framework.Interfaces;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Gherkin.Model;
+using System.Reflection;
+
 
 
 
@@ -18,6 +20,11 @@ namespace CompanyWebsitePageFactory.Runner
         private static ExtentTest featureName;
         private static ExtentTest scenario;
         private static ExtentReports extent;
+
+
+        //PropertyInfo pInfo = typeof(ScenarioContext).GetProperty("TestStatus", BindingFlags.Instance | BindingFlags.NonPublic);
+        //MethodInfo getter = pInfo.GetGetMethod(nonPublic: true);
+        //object TestResult = getter.Invoke(ScenarioContext.Current, null);
 
         [BeforeTestRun]
         public static void InitializeReport()
@@ -79,6 +86,19 @@ namespace CompanyWebsitePageFactory.Runner
                 else if (stepType == "And")
                     scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
             }
+
+            //Pending status
+            //if(TestResult.ToString() == "StepDefinitionPending")
+            //{
+            //    if (stepType == "Given")
+            //        scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
+            //    if (stepType == "When")
+            //        scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
+            //    if (stepType == "Then")
+            //        scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
+            //    if (stepType == "And")
+            //        scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
+            //}
         }
 
 
