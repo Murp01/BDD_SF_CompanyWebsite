@@ -53,7 +53,32 @@ namespace CompanyWebsitePageFactory.Runner
         [AfterStep]
         public void InsertReportingSteps()
         {
-            scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
+            //Creates a string variable which displays the test step type. i.e. Given
+            var stepType = ScenarioStepContext.Current.StepInfo.StepDefinitionType.ToString();
+
+            if (ScenarioContext.Current.TestError == null)  //if there is no error in the test
+            {
+                //if statement finds name of step and then adds it correctly to code
+                if (stepType == "Given")
+                    scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
+                else if (stepType == "When")
+                    scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text);
+                else if (stepType == "Then")
+                    scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text);
+                else if (stepType == "And")
+                    scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text);
+            }
+            else if (ScenarioContext.Current.TestError != null)
+            {
+                if (stepType == "Given")
+                    scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
+                else if(stepType == "When")
+                    scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
+                else if (stepType == "Then")
+                    scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
+                else if (stepType == "And")
+                    scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
+            }
         }
 
 
