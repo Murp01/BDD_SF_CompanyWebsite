@@ -10,6 +10,8 @@ using AventStack.ExtentReports.Gherkin.Model;
 using System.Reflection;
 using System.IO;
 using System;
+using System.Drawing.Imaging;
+using OpenQA.Selenium;
 
 
 
@@ -29,7 +31,7 @@ namespace CompanyWebsitePageFactory.Runner
         public static void InitializeReport()
         {
             string relativePath = Environment.CurrentDirectory;
-
+            //var htmlReporter = new ExtentHtmlReporter(@"\\CompanyWebsitePageFactory\ExtentReports\ExtentReport.html");
             var htmlReporter = new ExtentHtmlReporter(@"C:\ExtentReports\ExtentReport.html");
             htmlReporter.Configuration().Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
 
@@ -82,13 +84,30 @@ namespace CompanyWebsitePageFactory.Runner
             else if (ScenarioContext.Current.TestError != null)
             {
                 if (stepType == "Given")
+                {
                     scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
-                else if(stepType == "When")
+                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
+                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
+                }              
+                else if (stepType == "When")
+                {
                     scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
+                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
+                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
+                }                   
                 else if (stepType == "Then")
+                {
                     scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
+                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
+                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
+                }                   
                 else if (stepType == "And")
+                {
                     scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
+                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
+                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
+                }
+                    
             }
 
             //Pending status
