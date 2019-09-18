@@ -22,10 +22,6 @@ namespace CompanyWebsitePageFactory.Runner
         private static ExtentReports extent;
 
 
-        //PropertyInfo pInfo = typeof(ScenarioContext).GetProperty("TestStatus", BindingFlags.Instance | BindingFlags.NonPublic);
-        //MethodInfo getter = pInfo.GetGetMethod(nonPublic: true);
-        //object TestResult = getter.Invoke(ScenarioContext.Current, null);
-
         [BeforeTestRun]
         public static void InitializeReport()
         {
@@ -52,7 +48,6 @@ namespace CompanyWebsitePageFactory.Runner
             BrowserFactory.InitBrowser("Chrome");
             BrowserFactory.GetDriver.Manage().Window.Maximize();
             BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
-            //SelectBrowser(BrowserType.Chrome);
             scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
         }
 
@@ -62,6 +57,11 @@ namespace CompanyWebsitePageFactory.Runner
         {
             //Creates a string variable which displays the test step type. i.e. Given
             var stepType = ScenarioStepContext.Current.StepInfo.StepDefinitionType.ToString();
+
+            //the below code retrieves the TestStatus property of the test - this is used in pending if statement - adding below code will fail all tests?
+            //PropertyInfo pInfo = typeof(ScenarioContext).GetProperty("TestStatus", BindingFlags.Instance | BindingFlags.NonPublic);
+            //MethodInfo getter = pInfo.GetGetMethod(nonPublic: true);
+            //object TestResult = getter.Invoke(ScenarioContext.Current, null);
 
             if (ScenarioContext.Current.TestError == null)  //if there is no error in the test
             {
@@ -88,7 +88,7 @@ namespace CompanyWebsitePageFactory.Runner
             }
 
             //Pending status
-            //if(TestResult.ToString() == "StepDefinitionPending")
+            //if (TestResult.ToString() == "StepDefinitionPending")
             //{
             //    if (stepType == "Given")
             //        scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
@@ -114,24 +114,6 @@ namespace CompanyWebsitePageFactory.Runner
         {
             extent.Flush();
         }
-
-
-        //[Before]
-        //public void ScenarioSetup()
-        //{
-        //    BrowserFactory.InitBrowser("Chrome");
-        //    BrowserFactory.GetDriver.Manage().Window.Maximize();
-        //    BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
-        //    scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
-        //}
-
-        //[After]
-        //public void ScenarioTeardown()
-        //{
-        //    BrowserFactory.CloseAllDrivers();
-        //}
-
-
 
     }
 }
