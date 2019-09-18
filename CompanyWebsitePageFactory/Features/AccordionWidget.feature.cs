@@ -115,8 +115,10 @@ this.FeatureBackground();
 #line 18
  testRunner.And("I am on the Linklaters homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
- testRunner.When("I click on the browsers \"Back\" navigation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("the step is not implemented", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
+ testRunner.When("I click on the browsers \"Back\" navigation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
  testRunner.Then("all accordion segments will be closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -127,16 +129,16 @@ this.FeatureBackground();
         public virtual void CloseAllSegmentsOfTheAccordionWidget()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Close all segments of the accordion widget", null, ((string[])(null)));
-#line 23
+#line 24
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
 this.FeatureBackground();
-#line 24
- testRunner.When("I click on each \"Closed\" accordion segment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 25
- testRunner.And("I click on each \"Open\" accordion segment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click on each \"Closed\" accordion segment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 26
+ testRunner.And("I click on each \"Open\" accordion segment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
  testRunner.Then("all accordion segments will be closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -147,14 +149,14 @@ this.FeatureBackground();
         public virtual void AllLinksWithinAccordionsContentWillDirectToTheCorrectDestinationPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All links within accordion\'s content will direct to the correct destination page", null, ((string[])(null)));
-#line 29
+#line 30
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
 this.FeatureBackground();
-#line 30
- testRunner.And("accordion \"Segment01\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
+ testRunner.And("accordion \"Segment01\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
  testRunner.When("I click on the \"ResponsibleBusinessSection\" link from within \"Segment01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();

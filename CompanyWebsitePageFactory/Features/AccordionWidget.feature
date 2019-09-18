@@ -16,6 +16,7 @@ Scenario: Open all accordions segments
 Scenario: Upon arriving on the page the accordion will be closed by default
 	And accordion "Segment02" is open
 	And I am on the Linklaters homepage
+	And the step is not implemented
 	When I click on the browsers "Back" navigation button
 	Then all accordion segments will be closed
 

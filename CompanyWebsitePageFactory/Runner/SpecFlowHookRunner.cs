@@ -8,12 +8,15 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Gherkin.Model;
 using System.Reflection;
+using System.IO;
+using System;
 
 
 
 
 namespace CompanyWebsitePageFactory.Runner
 {
+
     [Binding]
     public class SpecflowHookRunner
     {
@@ -25,7 +28,8 @@ namespace CompanyWebsitePageFactory.Runner
         [BeforeTestRun]
         public static void InitializeReport()
         {
-            //Create Html Report
+            string relativePath = Environment.CurrentDirectory;
+
             var htmlReporter = new ExtentHtmlReporter(@"C:\ExtentReports\ExtentReport.html");
             htmlReporter.Configuration().Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
 
@@ -89,6 +93,7 @@ namespace CompanyWebsitePageFactory.Runner
 
             //Pending status
             //if (TestResult.ToString() == "StepDefinitionPending")
+            //if (ScenarioContext.Current.ScenarioExecutionStatus.ToString() == "StepDefinitionPending")
             //{
             //    if (stepType == "Given")
             //        scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
@@ -99,6 +104,8 @@ namespace CompanyWebsitePageFactory.Runner
             //    if (stepType == "And")
             //        scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
             //}
+
+
         }
 
 
