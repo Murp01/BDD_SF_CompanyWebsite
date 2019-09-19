@@ -1,13 +1,9 @@
 ﻿using CompanyWebsitePageFactory.BrowserWrapper;
 using CompanyWebsitePageFactory.Extensions;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CompanyWebsitePageFactory.TestDataAccess;
+
 
 namespace CompanyWebsitePageFactory.PageObjects
 {
@@ -48,6 +44,12 @@ namespace CompanyWebsitePageFactory.PageObjects
         {
             //BrowserFactory.Driver.FindElement(By.XPath("//input[@placeholder='Name']")).SendKeys(PersonName);
             Input_SearchPerson.SendKeys(PersonName);
+        }
+
+        public void InputLawyerNameSearch(string nameSearch)
+        {
+            var userData = ExcelDataAccess.GetTestData(nameSearch); //variable string goes to ExcelDBAccess class and uses method to search for argument (nameSearch will be test case (1st cell))
+            Input_SearchPerson.SendKeys(userData.SearchTerm);   //References userData to select the key, and then looks in the SearchTerm column for value
         }
     }
 }

@@ -34,7 +34,8 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [When(@"I have entered '(.*)' into the name input field")]
         public void WhenIHaveEnteredIntoTheNameInputField(string PersonName)
         {
-            DotCom.FindPeople.InputSearchPersonName(PersonName);
+            //DotCom.FindPeople.InputSearchPersonName(PersonName);
+            DotCom.FindPeople.InputLawyerNameSearch(PersonName);    //uses DB method to search for name
         }
 
 

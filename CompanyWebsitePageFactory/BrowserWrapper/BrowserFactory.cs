@@ -35,7 +35,8 @@ namespace CompanyWebsitePageFactory.BrowserWrapper
                     break;
 
                 case "IE":
-                    driver = new InternetExplorerDriver(@"C:\Webdriver");
+                    //driver = new InternetExplorerDriver(@"C:\Webdriver");
+                    driver = new InternetExplorerDriver();
                     break;
 
                 case "Chrome":

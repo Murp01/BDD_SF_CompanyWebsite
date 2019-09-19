@@ -75,7 +75,7 @@ namespace CompanyWebsitePageFactory.Features
 #line 5
  testRunner.Given("I am on the Linklaters homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
- testRunner.And("I click on Insights from the global navigation bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click on \"Insights\" from the primary navigation header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
         }
         
@@ -86,12 +86,12 @@ namespace CompanyWebsitePageFactory.Features
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Use a search term that will return a large volume of articles", null, new string[] {
                         "mytag"});
-#line 10
+#line 11
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 4
 this.FeatureBackground();
-#line 11
+#line 12
  testRunner.When("I enter a search term into Insights name search box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
@@ -102,7 +102,7 @@ this.FeatureBackground();
         public virtual void IFilterTheInsightsResultsToShowArticlesFrom2018()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I filter the Insights results to show articles from 2018", null, ((string[])(null)));
-#line 15
+#line 16
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 4

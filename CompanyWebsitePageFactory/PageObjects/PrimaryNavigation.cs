@@ -13,13 +13,17 @@ namespace CompanyWebsitePageFactory.PageObjects
         [CacheLookup]
         public IWebElement Title_AboutUs { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='header__navDesktop']//a[contains(text(),'Client Services')]")]
         [CacheLookup]
         public IWebElement Title_ClientServices { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='header__navDesktop']//a[contains(text(),'Sectors')]")]
         [CacheLookup]
         public IWebElement Title_Sectors { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//div[@class='header__navDesktop']//a[contains(text(),'Insights')]")]
+        [CacheLookup]
+        public IWebElement Title_Insights { get; set; }
 
 
 
@@ -34,6 +38,9 @@ namespace CompanyWebsitePageFactory.PageObjects
                     Title_ClientServices.ClickOnIt("Clicked on " + PageTitle + "from " + "Primary Navigation bar");
                     break;
                 case "Sectors":
+                    Title_Sectors.ClickOnIt("Clicked on " + PageTitle + "from " + "Primary Navigation bar");
+                    break;
+                case "Insights":
                     Title_Sectors.ClickOnIt("Clicked on " + PageTitle + "from " + "Primary Navigation bar");
                     break;
             }

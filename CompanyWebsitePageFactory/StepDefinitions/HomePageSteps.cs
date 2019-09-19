@@ -14,11 +14,20 @@ namespace CompanyWebsitePageFactory.StepDefinitions
             BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
         }
 
+
+        [When(@"I wait a moment seconds for test purposes")]
+        public void WhenIWaitAMomentSecondsForTestPurposes()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
         [Given(@"I click on Insights from the global navigation bar")]
         public void GivenIClickOnInsightsFromTheGlobalNavigationBar()
         {
             DotCom.Home.ClickOnNavInsights();           
         }
+
 
         [When(@"I scroll the carousel feature by clicking on the ""(.*)"" border arrow")]
         public void WhenIScrollTheCarouselFeatureByClickingOnTheBorderArrow(string BorderArrow)

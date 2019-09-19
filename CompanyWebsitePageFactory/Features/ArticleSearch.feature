@@ -3,7 +3,8 @@
 
 Background: I access the Insights page
 	Given I am on the Linklaters homepage
-	And I click on Insights from the global navigation bar
+	When I click on "Insights" from the primary navigation header
+	#And I wait a moment seconds for test purposes
 
 
 @mytag
