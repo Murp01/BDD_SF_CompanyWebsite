@@ -18,19 +18,19 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [When(@"I click on each ""(.*)"" accordion segment")]
         public void WhenIClickOnEachAccordionSegment(string ClosedAccordion)
         {
-            DotCom.AboutUs.AccordionCheckOpenCloseThenClick(ClosedAccordion);
+            PageObjectFactory.AboutUs.AccordionCheckOpenCloseThenClick(ClosedAccordion);
         }
 
         [Then(@"the correct content will be displayed")]
         public void ThenTheCorrectContentWillBeDisplayed()
         {
-            DotCom.AboutUs.assertAccordionTextField();
+            PageObjectFactory.AboutUs.assertAccordionTextField();
         }
 
         [Given(@"accordion ""(.*)"" is open")]
         public void GivenAccordionIsOpen(string segment)
         {
-            DotCom.AboutUs.assertAccordionTabOpenElseClickToOpen(segment);
+            PageObjectFactory.AboutUs.assertAccordionTabOpenElseClickToOpen(segment);
         }
 
         [When(@"I click on the browsers ""(.*)"" navigation button")]
@@ -42,7 +42,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Then(@"all accordion segments will be closed")]
         public void ThenAllAccordionSegmentsWillBeClosed()
         {
-            DotCom.AboutUs.assertAllAccordionTabsAreClosed();
+            PageObjectFactory.AboutUs.assertAllAccordionTabsAreClosed();
         }
 
         [Given(@"""(.*)"" is open")]
@@ -54,7 +54,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [When(@"I click on the ""(.*)"" link from within ""(.*)""")]
         public void WhenIClickOnTheLinkFromWithin(string link, string section)
         {
-            DotCom.AboutUs.clickOnLinkWithinAccordionTextbox(link, section);
+            PageObjectFactory.AboutUs.clickOnLinkWithinAccordionTextbox(link, section);
         }
 
         [Then(@"the webpage will change to ""(.*)""")]
