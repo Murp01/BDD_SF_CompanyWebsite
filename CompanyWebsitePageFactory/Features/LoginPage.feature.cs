@@ -18,22 +18,21 @@ namespace CompanyWebsitePageFactory.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("PrimaryNavigationMenu")]
-    public partial class PrimaryNavigationMenuFeature
+    [NUnit.Framework.DescriptionAttribute("Log in Page")]
+    public partial class LogInPageFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "PrimaryNavigationMenu.feature"
+#line 1 "LoginPage.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PrimaryNavigationMenu", "\tThe Primary Navigation Menu is the main banner at the\r\n\ttop of the webpage.  The" +
-                    " menu contains the Homepage button,\r\n\tSign in button, search box and page naviga" +
-                    "tion buttons.\r\n\tNote: search box and Sign in have their own feature files", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Log in Page", "\tTrello\'s log in page has multiple features.  For\r\n\texample, Log in, Sign up, sub" +
+                    "scribe etc.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -73,28 +72,32 @@ namespace CompanyWebsitePageFactory.Features
         
         public virtual void FeatureBackground()
         {
-#line 7
-#line 8
- testRunner.Given("I am on the BBC homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 5
+#line 6
+ testRunner.Given("I am on the Trello Log in page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("More drop down reveals further nav options")]
-        [NUnit.Framework.CategoryAttribute("Ready")]
-        public virtual void MoreDropDownRevealsFurtherNavOptions()
+        [NUnit.Framework.DescriptionAttribute("Message displays when unregistered email entered")]
+        [NUnit.Framework.CategoryAttribute("ready")]
+        public virtual void MessageDisplaysWhenUnregisteredEmailEntered()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("More drop down reveals further nav options", null, new string[] {
-                        "Ready"});
-#line 11
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Message displays when unregistered email entered", null, new string[] {
+                        "ready"});
+#line 9
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 7
+#line 5
 this.FeatureBackground();
+#line 10
+ testRunner.And("I enter an unregistered email address into Email field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I enter an unregistered password into the password field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
- testRunner.When("I click on the More drop down button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on the Log in button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
- testRunner.Then("further nav options are revealed below the primary nav bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("a prompt will state \"There isn\'t an account for this email\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

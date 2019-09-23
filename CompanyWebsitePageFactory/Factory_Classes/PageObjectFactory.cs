@@ -14,9 +14,9 @@ namespace CompanyWebsitePageFactory.PageObjects
         }
 
 
-        public static BBCHomePage BBCHomePage
+        public static LogInPage LogInPage
         {
-            get { return GetPage<BBCHomePage>(); }
+            get { return GetPage<LogInPage>(); }
         }
 
 
