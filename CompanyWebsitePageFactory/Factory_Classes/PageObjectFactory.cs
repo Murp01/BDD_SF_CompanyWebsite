@@ -18,6 +18,11 @@ namespace CompanyWebsitePageFactory.PageObjects
             get { return GetPage<AboutUs>(); }
         }
 
+        public static BBCHomePage BBCHomePage
+        {
+            get { return GetPage<BBCHomePage>(); }
+        }
+
 
 
     }
