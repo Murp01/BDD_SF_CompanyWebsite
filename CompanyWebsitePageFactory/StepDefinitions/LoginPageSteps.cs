@@ -30,7 +30,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [When(@"I click on the Log in button")]
         public void WhenIClickOnTheLogInButton()
         {
-            PageObjectFactory.LogInPage.ClickOnLogInButton();
+            PageObjectFactory.LogInPage.InputRegisteredEmailAddressPassword();
         }
 
 

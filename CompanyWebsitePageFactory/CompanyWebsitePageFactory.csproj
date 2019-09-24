@@ -132,14 +132,21 @@
     <Compile Include="Factory_Classes\BrowserFactory.cs" />
     <Compile Include="Extensions\Element_Extensions.cs" />
     <Compile Include="Factory_Classes\PageObjectFactory.cs" />
+    <Compile Include="Features\Board Creation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Board Creation.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\LoginPage.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginPage.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageObjects\AccountHome.cs" />
     <Compile Include="PageObjects\LogInPage.cs" />
     <Compile Include="Runner\SpecflowHookRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepDefinitions\AccountHomeStepDefinitions.cs" />
     <Compile Include="StepDefinitions\LoginPageSteps.cs" />
     <Compile Include="TestDataAccess\ExcelDataAccess.cs" />
     <Compile Include="TestDataAccess\UserData.cs" />
@@ -148,6 +155,10 @@
     <None Include="App.config" />
     <None Include="Configurations\Environment.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Features\Board Creation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Board Creation.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\LoginPage.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

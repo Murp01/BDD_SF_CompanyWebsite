@@ -19,6 +19,11 @@ namespace CompanyWebsitePageFactory.PageObjects
             get { return GetPage<LogInPage>(); }
         }
 
+        public static AccountHome AccountHome
+        {
+            get { return GetPage<AccountHome>(); }
+        }
+
 
 
     }
