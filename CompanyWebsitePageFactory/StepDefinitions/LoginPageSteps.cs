@@ -32,11 +32,38 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         {
             PageObjectFactory.LogInPage.ClickOnLogInButton();
         }
-        
+
+
+        [Given(@"I log in with registered credentials")]
+        public void GivenILogInWithRegisteredCredentials()
+        {
+            PageObjectFactory.LogInPage.InputRegisteredEmailAddressPassword();
+        }
+
+
         [Then(@"a prompt will state ""(.*)""")]
         public void ThenAPromptWillState(string ErrorPrompt)
         {
             PageObjectFactory.LogInPage.AssertAccountErrorPrompt(ErrorPrompt);
         }
+
+        [Given(@"I enter a registered email address into Email field")]
+        public void GivenIEnterARegisteredEmailAddressIntoEmailField()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"I enter a registered password into the Password field")]
+        public void GivenIEnterARegisteredPasswordIntoThePasswordField()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"I will be logged into the Trello accounts")]
+        public void ThenIWillBeLoggedIntoTheTrelloAccounts()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
     }
 }

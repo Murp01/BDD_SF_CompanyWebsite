@@ -12,3 +12,9 @@ Scenario: Message displays when unregistered email entered
 	When I click on the Log in button
 	Then a prompt will state "There isn't an account for this email" 
 	#commas or speech for then step?
+
+
+Scenario: Log into Trello with valid user credentials
+	And I log in with registered credentials
+	When I click on the Log in button
+	Then I will be logged into the Trello accounts

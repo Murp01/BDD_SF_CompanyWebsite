@@ -11,6 +11,7 @@ namespace CompanyWebsitePageFactory.TestDataAccess
 {
     class ExcelDataAccess
     {
+
         public static string TestDataFileConnection()
         {
             var fileName = ConfigurationManager.AppSettings["TestDataSheetPath"];   //Gets file path from Configurations - Enviroment.config - needs to be a relative path
@@ -29,5 +30,6 @@ namespace CompanyWebsitePageFactory.TestDataAccess
                 return value;
             }
         }
+
     }
 }
