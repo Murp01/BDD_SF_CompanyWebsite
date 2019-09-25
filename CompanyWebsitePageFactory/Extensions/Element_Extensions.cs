@@ -112,6 +112,17 @@ namespace CompanyWebsitePageFactory.Extensions
             return driver.FindElement(by);
         }
 
+
+
+        public static void WaitUntilElementDisplayClick(this IWebDriver driver, By by)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(6));
+            wait.Until(ExpectedConditions.ElementIsVisible(by));
+        }
+
+
+
+
     }
 
 }

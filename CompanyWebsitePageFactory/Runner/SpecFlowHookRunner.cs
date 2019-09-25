@@ -86,43 +86,37 @@ namespace CompanyWebsitePageFactory.Runner
                 if (stepType == "Given")
                 {
                     scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
-                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
-                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }              
                 else if (stepType == "When")
                 {
                     scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
-                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
-                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }                   
                 else if (stepType == "Then")
                 {
                     scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
-                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
-                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }                   
                 else if (stepType == "And")
                 {
                     scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
-                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
-                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }
-                    
+
+                var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
+                screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
             }
 
             //Pending status
             //if (TestResult.ToString() == "StepDefinitionPending")
-            //if (ScenarioContext.Current.ScenarioExecutionStatus.ToString() == "StepDefinitionPending")
-            //{
-            //    if (stepType == "Given")
-            //        scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
-            //    if (stepType == "When")
-            //        scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
-            //    if (stepType == "Then")
-            //        scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
-            //    if (stepType == "And")
-            //        scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
-            //}
+            //    if (ScenarioContext.Current.ScenarioExecutionStatus.ToString() == "StepDefinitionPending")
+            //    {
+            //        if (stepType == "Given")
+            //            scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
+            //        if (stepType == "When")
+            //            scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
+            //        if (stepType == "Then")
+            //            scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
+            //        if (stepType == "And")
+            //            scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Defintion Pending");
+            //    }
 
 
         }

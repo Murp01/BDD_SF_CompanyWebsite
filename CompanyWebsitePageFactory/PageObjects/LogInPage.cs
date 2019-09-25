@@ -11,6 +11,7 @@ using NUnit.Framework;
 using CompanyWebsitePageFactory.BrowserWrapper;
 using System.Configuration;
 using System.IO;
+using OpenQA.Selenium.Support.UI;
 
 namespace CompanyWebsitePageFactory.PageObjects
 {
@@ -45,7 +46,10 @@ namespace CompanyWebsitePageFactory.PageObjects
         [CacheLookup]
         public IWebElement ButtonAtlassianContinue { get; set; }
 
-        //button[@id='login-submit']//span[@class='css-t5emrf']
+        [FindsBy(How = How.Id, Using = "login-submit")]
+        [CacheLookup]
+        public IWebElement IDButtonAtlassianContinue { get; set; }
+
 
 
 
@@ -87,12 +91,25 @@ namespace CompanyWebsitePageFactory.PageObjects
 
         public void LogIntoValidTrelloAccount()
         {
+            
+            //BrowserFactory.GoToURL(ConfigurationManager.AppSettings["LoginPageURL"]);
+            //InputEmailAddress.SendKeys(ConfigurationManager.AppSettings["ValidLogInUser"]);
+            //InputPassword.SendKeys(ConfigurationManager.AppSettings["ValidLogInPass"]);
+            //ButtonLogIn.Click();    //Trello Log in
+            //System.Threading.Thread.Sleep(3000);    //replace this with wait for element
+            //ButtonAtlassionLogin.Click();   //email automatically entered
+            //System.Threading.Thread.Sleep(3000);
+            //InputAtlassionPassword.SendKeys(ConfigurationManager.AppSettings["ValidLogInPass"]);
+            //ButtonAtlassionLogin.Click();
+            //System.Threading.Thread.Sleep(3000);
+
             BrowserFactory.GoToURL(ConfigurationManager.AppSettings["LoginPageURL"]);
             InputEmailAddress.SendKeys(ConfigurationManager.AppSettings["ValidLogInUser"]);
             InputPassword.SendKeys(ConfigurationManager.AppSettings["ValidLogInPass"]);
             ButtonLogIn.Click();    //Trello Log in
-            System.Threading.Thread.Sleep(3000);
-            ButtonAtlassionLogin.Click();   //email automatically entered
+            //Extensions.Element_Extensions.WaitUntilElementDisplayClick(driver, IDButtonAtlassianContinue);
+              
+            //ButtonAtlassionLogin.Click();   //replace this with wait for element
             System.Threading.Thread.Sleep(3000);
             InputAtlassionPassword.SendKeys(ConfigurationManager.AppSettings["ValidLogInPass"]);
             ButtonAtlassionLogin.Click();
