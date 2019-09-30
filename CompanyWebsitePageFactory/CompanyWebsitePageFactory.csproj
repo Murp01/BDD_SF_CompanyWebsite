@@ -129,9 +129,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiResponse.cs" />
+    <Compile Include="ApiTrelloTests.cs" />
     <Compile Include="Factory_Classes\BrowserFactory.cs" />
     <Compile Include="Extensions\Element_Extensions.cs" />
     <Compile Include="Factory_Classes\PageObjectFactory.cs" />
+    <Compile Include="FeaturesAPI\LoginAPI.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginAPI.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Board Creation.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -155,6 +162,10 @@
     <None Include="App.config" />
     <None Include="Configurations\Environment.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FeaturesAPI\LoginAPI.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LoginAPI.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Board Creation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
