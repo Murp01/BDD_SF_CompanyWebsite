@@ -30,7 +30,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [When(@"I click on the Log in button")]
         public void WhenIClickOnTheLogInButton()
         {
-            PageObjectFactory.LogInPage.InputRegisteredEmailAddressPassword();
+            PageObjectFactory.LogInPage.ClickOnAtlassionaContButton();
         }
 
 
@@ -62,7 +62,8 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Then(@"I will be logged into the Trello accounts")]
         public void ThenIWillBeLoggedIntoTheTrelloAccounts()
         {
-            ScenarioContext.Current.Pending();
+            PageObjectFactory.LogInPage.AssertAccountLoggedIn();
+            //need to add a new page for this rather than using log in page
         }
 
     }

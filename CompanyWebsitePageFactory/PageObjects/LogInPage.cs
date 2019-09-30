@@ -50,6 +50,11 @@ namespace CompanyWebsitePageFactory.PageObjects
         [CacheLookup]
         public IWebElement IDButtonAtlassianContinue { get; set; }
 
+        [FindsBy(How = How.XPath, Using = "//div[@title='Paul Murphy (paulmurphy161)']")]
+        [CacheLookup]
+        public IWebElement IconUserLogo { get; set; }
+
+
 
 
 
@@ -61,6 +66,12 @@ namespace CompanyWebsitePageFactory.PageObjects
             //Add wait
             System.Threading.Thread.Sleep(3000);
             Assert.That(PromptErrorMessage.Text.Contains(ErrorPrompt));               
+        }
+
+        public void AssertAccountLoggedIn()
+        {
+            System.Threading.Thread.Sleep(5000);
+            Assert.That(IconUserLogo.Displayed);
         }
 
         public void ClickOnLogInButton()
@@ -84,36 +95,25 @@ namespace CompanyWebsitePageFactory.PageObjects
             ButtonAtlassionLogin.Click();   //email automatically entered
             System.Threading.Thread.Sleep(3000);
             InputAtlassionPassword.SendKeys(ConfigurationManager.AppSettings["ValidLogInPass"]);
-            System.Threading.Thread.Sleep(3000);
-            ButtonAtlassionLogin.Click();
-            System.Threading.Thread.Sleep(3000);
+            //System.Threading.Thread.Sleep(3000);
+            //ButtonAtlassionLogin.Click();
+            //System.Threading.Thread.Sleep(3000);
         }
 
         public void LogIntoValidTrelloAccount()
         {
-            
-            //BrowserFactory.GoToURL(ConfigurationManager.AppSettings["LoginPageURL"]);
-            //InputEmailAddress.SendKeys(ConfigurationManager.AppSettings["ValidLogInUser"]);
-            //InputPassword.SendKeys(ConfigurationManager.AppSettings["ValidLogInPass"]);
-            //ButtonLogIn.Click();    //Trello Log in
-            //System.Threading.Thread.Sleep(3000);    //replace this with wait for element
-            //ButtonAtlassionLogin.Click();   //email automatically entered
-            //System.Threading.Thread.Sleep(3000);
-            //InputAtlassionPassword.SendKeys(ConfigurationManager.AppSettings["ValidLogInPass"]);
-            //ButtonAtlassionLogin.Click();
-            //System.Threading.Thread.Sleep(3000);
 
             BrowserFactory.GoToURL(ConfigurationManager.AppSettings["LoginPageURL"]);
             InputEmailAddress.SendKeys(ConfigurationManager.AppSettings["ValidLogInUser"]);
             InputPassword.SendKeys(ConfigurationManager.AppSettings["ValidLogInPass"]);
             ButtonLogIn.Click();    //Trello Log in
-            //Extensions.Element_Extensions.WaitUntilElementDisplayClick(driver, IDButtonAtlassianContinue);
-              
-            //ButtonAtlassionLogin.Click();   //replace this with wait for element
+            System.Threading.Thread.Sleep(3000);    //replace this with wait for element
+            ButtonAtlassionLogin.Click();   //email automatically entered
             System.Threading.Thread.Sleep(3000);
             InputAtlassionPassword.SendKeys(ConfigurationManager.AppSettings["ValidLogInPass"]);
             ButtonAtlassionLogin.Click();
             System.Threading.Thread.Sleep(3000);
+
         }
 
 
