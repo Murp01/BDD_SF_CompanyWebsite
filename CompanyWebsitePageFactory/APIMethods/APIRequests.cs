@@ -11,9 +11,61 @@ namespace CompanyWebsitePageFactory.APIMethods
 {
     class APIRequests
     {
-        string Board1 = "https://api.trello.com/1/boards/5d8a068a841027562d773c27?fields=name,url&key=ebd1f371dd70dc02f3ba8bece74198e3&token=a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
+        //string Board1 = "https://api.trello.com/1/boards/5d9f30d4bd96ec8a9d4bd389?fields=name,url&key=ebd1f371dd70dc02f3ba8bece74198e3&token=a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
+        string TrelloURI = "https://api.trello.com/1";
+        string BoardID = "5d9f30d4bd96ec8a9d4bd389";
+        string ListID = "5d9f3dcf1aea3f44c1e9685d";
+        string key = "ebd1f371dd70dc02f3ba8bece74198e3";
+        string token = "a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
+
 
         [Test]
+        public void CreateATrelloBoard()
+        {
+            RestClient client = new RestClient(TrelloURI);
+
+            IRestRequest createCardRequest = new RestRequest("/cards");
+
+            createCardRequest.Method = Method.POST;
+
+            createCardRequest.AddParameter("idBoard", BoardID);
+            createCardRequest.AddParameter("name", "TestAddCard");
+            createCardRequest.AddParameter("idList", ListID);
+            createCardRequest.AddParameter("key", key);
+            createCardRequest.AddParameter("token", token);
+
+            //website stated IRestRequest - error can't convert response to request
+            IRestResponse createResponse = client.Execute(createCardRequest);
+
+            Console.WriteLine(createResponse.Content);
+        }
+
+
+        [Test]
+        public void CreateATrelloCard()
+        {
+            RestClient client = new RestClient(TrelloURI);
+
+            IRestRequest createCardRequest = new RestRequest("/cards");
+
+            createCardRequest.Method = Method.POST;
+
+            createCardRequest.AddParameter("idBoard", BoardID);
+            createCardRequest.AddParameter("name", "TestAddCard");
+            createCardRequest.AddParameter("idList", ListID);
+            createCardRequest.AddParameter("key", key);
+            createCardRequest.AddParameter("token", token);
+
+            //website stated IRestRequest - error can't convert response to request
+            IRestResponse createResponse = client.Execute(createCardRequest);
+
+            Console.WriteLine(createResponse.Content);
+        }
+
+
+
+
+
         public void GetWeatherInfo()
         {
             //Creates teh connection
@@ -74,5 +126,5 @@ namespace CompanyWebsitePageFactory.APIMethods
         }
     }
 
-}
+
 }
