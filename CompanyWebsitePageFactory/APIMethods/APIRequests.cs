@@ -15,6 +15,7 @@ namespace CompanyWebsitePageFactory.APIMethods
         string key = "ebd1f371dd70dc02f3ba8bece74198e3";
         string token = "a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
         CreateBoardResponse createResponse;
+        string newBoardID;
 
         [Test]
         public void CreateATrelloBoard()
@@ -50,6 +51,40 @@ namespace CompanyWebsitePageFactory.APIMethods
             Console.WriteLine(response.url);
 
             this.createResponse = response;
+
+            string newBoardID = response.id;
+
+        }
+
+        [Test]
+        public void GetBoardByID()
+        {
+            //Do I need to even create the parameters again or just call from the class
+            //test can only be ran if board has been created.  Better way to do this?
+            RestClient client = new RestClient(trelloURI);
+            IRestRequest editBoardRequest = new RestRequest("/boards/" + newBoardID);
+
+            editBoardRequest.Method = Method.GET;
+            editBoardRequest.AddParameter("key", key);
+            editBoardRequest.AddParameter("token", token);
+
+            IRestResponse createResponse = client.Execute(editBoardRequest); //there is a problem on this line
+
+            string returnedJson = createResponse.Content;
+
+            dynamic api = JObject.Parse(returnedJson);
+
+            var id = api.id;
+            var name = api.name;
+            var url = api.url;
+
+            Console.WriteLine("I can confirm that the id is " + id);
+        }
+
+        //Get property from board
+        public void GetPropertiesFromBoard()
+        {
+
         }
 
 
@@ -58,11 +93,7 @@ namespace CompanyWebsitePageFactory.APIMethods
         //    //objectHere json = JsonConvert.DeserializeObject<objectHere>(jsonData);
         //} 
 
-        [Test]
-        public void GetBoardByID()
-        {
 
-        }
 
 
         [Test]
