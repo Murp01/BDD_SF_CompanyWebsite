@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit;
 using NUnit.Framework;
 using RestSharp;
+using Newtonsoft.Json.Linq;
 
 namespace CompanyWebsitePageFactory.APIMethods
 {
@@ -24,20 +20,49 @@ namespace CompanyWebsitePageFactory.APIMethods
         {
             RestClient client = new RestClient(TrelloURI);
 
-            IRestRequest createCardRequest = new RestRequest("/cards");
+            IRestRequest createBoardRequest = new RestRequest("/boards");
 
-            createCardRequest.Method = Method.POST;
+            //createBoardRequest becomes POST method
+            createBoardRequest.Method = Method.POST;
 
-            createCardRequest.AddParameter("idBoard", BoardID);
-            createCardRequest.AddParameter("name", "TestAddCard");
-            createCardRequest.AddParameter("idList", ListID);
-            createCardRequest.AddParameter("key", key);
-            createCardRequest.AddParameter("token", token);
+            //at this point createboardrequest is a post method.  Here we add parameters
+            createBoardRequest.AddParameter("idBoard", BoardID);
+            createBoardRequest.AddParameter("name", "RestSharpBoard");
+            createBoardRequest.AddParameter("key", key);
+            createBoardRequest.AddParameter("token", token);
 
             //website stated IRestRequest - error can't convert response to request
-            IRestResponse createResponse = client.Execute(createCardRequest);
+            //create response is an object that contains the json data
+            IRestResponse createResponse = client.Execute(createBoardRequest);
 
+            //the output will be displayed within test explorer.  Click output after result
             Console.WriteLine(createResponse.Content);
+
+
+
+            //deserialize json object into a class
+
+            //variable that stores response content (currently json format)
+            string returnedJson = createResponse.Content;
+
+            dynamic api = JObject.Parse(returnedJson);
+
+            var id = api.id;
+            var name = api.name;
+            var url = api.url;
+
+            Console.WriteLine(id);
+            Console.WriteLine(name);
+            Console.WriteLine(url);
+
+
+
+        }
+
+        [Test]
+        public void GetBoardByID()
+        {
+
         }
 
 
