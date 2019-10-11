@@ -9,17 +9,17 @@ namespace CompanyWebsitePageFactory.APIMethods
     class APIRequests
     {
         //string Board1 = "https://api.trello.com/1/boards/5d9f30d4bd96ec8a9d4bd389?fields=name,url&key=ebd1f371dd70dc02f3ba8bece74198e3&token=a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
-        string TrelloURI = "https://api.trello.com/1";
-        string BoardID = "5d9f30d4bd96ec8a9d4bd389";
-        string ListID = "5d9f3dcf1aea3f44c1e9685d";
+        string trelloURI = "https://api.trello.com/1";
+        string boardID = "5d9f30d4bd96ec8a9d4bd389";
+        string listID = "5d9f3dcf1aea3f44c1e9685d";
         string key = "ebd1f371dd70dc02f3ba8bece74198e3";
         string token = "a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
-
+        CreateBoardResponse createResponse;
 
         [Test]
         public void CreateATrelloBoard()
         {
-            RestClient client = new RestClient(TrelloURI);
+            RestClient client = new RestClient(trelloURI);
 
             IRestRequest createBoardRequest = new RestRequest("/boards");
 
@@ -27,7 +27,7 @@ namespace CompanyWebsitePageFactory.APIMethods
             createBoardRequest.Method = Method.POST;
 
             //at this point createboardrequest is a post method.  Here we add parameters
-            createBoardRequest.AddParameter("idBoard", BoardID);
+            createBoardRequest.AddParameter("idBoard", boardID);
             createBoardRequest.AddParameter("name", "RestSharpBoard");
             createBoardRequest.AddParameter("key", key);
             createBoardRequest.AddParameter("token", token);
@@ -39,25 +39,17 @@ namespace CompanyWebsitePageFactory.APIMethods
             //the output will be displayed within test explorer.  Click output after result
             Console.WriteLine(createResponse.Content);
 
-
-
             //deserialize json object into a class
-
             //variable that stores response content (currently json format)
             string returnedJson = createResponse.Content;
-            dynamic api = JObject.Parse(returnedJson);
-            //JsonConvert.DeserializeObject<BoardResponse>(returnedJson);
-            //ReturnJsonObject(createResponse);
-            
 
-            var id = api.id;
-            var name = api.name;
-            var url = api.url;
+            CreateBoardResponse response = JsonConvert.DeserializeObject<CreateBoardResponse>(returnedJson);
 
-            Console.WriteLine(id);
-            Console.WriteLine(name);
-            Console.WriteLine(url);
+            Console.WriteLine(response.id);
+            Console.WriteLine(response.name);
+            Console.WriteLine(response.url);
 
+            this.createResponse = response;
         }
 
 
@@ -76,15 +68,15 @@ namespace CompanyWebsitePageFactory.APIMethods
         [Test]
         public void CreateATrelloCard()
         {
-            RestClient client = new RestClient(TrelloURI);
+            RestClient client = new RestClient(trelloURI);
 
             IRestRequest createCardRequest = new RestRequest("/cards");
 
             createCardRequest.Method = Method.POST;
 
-            createCardRequest.AddParameter("idBoard", BoardID);
+            createCardRequest.AddParameter("idBoard", boardID);
             createCardRequest.AddParameter("name", "TestAddCard");
-            createCardRequest.AddParameter("idList", ListID);
+            createCardRequest.AddParameter("idList", listID);
             createCardRequest.AddParameter("key", key);
             createCardRequest.AddParameter("token", token);
 

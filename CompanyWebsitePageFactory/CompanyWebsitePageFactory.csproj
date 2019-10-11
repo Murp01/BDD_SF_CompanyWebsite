@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIMethods\APIRequests.cs" />
+    <Compile Include="APIMethods\CreateBoardResponse.cs" />
     <Compile Include="Factory_Classes\BrowserFactory.cs" />
     <Compile Include="Extensions\Element_Extensions.cs" />
     <Compile Include="Factory_Classes\PageObjectFactory.cs" />
