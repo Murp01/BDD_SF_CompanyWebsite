@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using RestSharp;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace CompanyWebsitePageFactory.APIMethods
 {
@@ -44,8 +45,10 @@ namespace CompanyWebsitePageFactory.APIMethods
 
             //variable that stores response content (currently json format)
             string returnedJson = createResponse.Content;
-
             dynamic api = JObject.Parse(returnedJson);
+            //JsonConvert.DeserializeObject<BoardResponse>(returnedJson);
+            //ReturnJsonObject(createResponse);
+            
 
             var id = api.id;
             var name = api.name;
@@ -55,9 +58,13 @@ namespace CompanyWebsitePageFactory.APIMethods
             Console.WriteLine(name);
             Console.WriteLine(url);
 
-
-
         }
+
+
+        //public T ReturnJsonObject<T> (ref T jsonData)
+        //{
+        //    //objectHere json = JsonConvert.DeserializeObject<objectHere>(jsonData);
+        //} 
 
         [Test]
         public void GetBoardByID()
