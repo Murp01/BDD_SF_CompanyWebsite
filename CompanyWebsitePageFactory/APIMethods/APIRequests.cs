@@ -3,6 +3,7 @@ using NUnit.Framework;
 using RestSharp;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using CompanyWebsitePageFactory.APIMethods;
 
 namespace CompanyWebsitePageFactory.APIMethods
 {
@@ -17,68 +18,81 @@ namespace CompanyWebsitePageFactory.APIMethods
         CreateBoardResponse createResponse;
         string newBoardID;
 
-        [Test]
-        public void CreateATrelloBoard()
+
+        public CreateBoardResponse CreateBoard(string name)
         {
             RestClient client = new RestClient(trelloURI);
 
-            IRestRequest createBoardRequest = new RestRequest("/boards");
+            IRestRequest request = new RestRequest("/boards");
 
             //createBoardRequest becomes POST method
-            createBoardRequest.Method = Method.POST;
+            request.Method = Method.POST;
 
             //at this point createboardrequest is a post method.  Here we add parameters
-            createBoardRequest.AddParameter("idBoard", boardID);
-            createBoardRequest.AddParameter("name", "RestSharpBoard");
-            createBoardRequest.AddParameter("key", key);
-            createBoardRequest.AddParameter("token", token);
+            request.AddParameter("idBoard", boardID);
+            request.AddParameter("name", name);
+            request.AddParameter("key", key);
+            request.AddParameter("token", token);
 
             //website stated IRestRequest - error can't convert response to request
             //create response is an object that contains the json data
-            IRestResponse createResponse = client.Execute(createBoardRequest);
+            IRestResponse response = client.Execute(request);
 
-            //the output will be displayed within test explorer.  Click output after result
-            Console.WriteLine(createResponse.Content);
+            return JsonConvert.DeserializeObject<CreateBoardResponse>(response.Content);
+        }
 
-            //deserialize json object into a class
-            //variable that stores response content (currently json format)
-            string returnedJson = createResponse.Content;
-
-            CreateBoardResponse response = JsonConvert.DeserializeObject<CreateBoardResponse>(returnedJson);
+        [Test]
+        public void CreateATrelloBoard()
+        {
+            CreateBoardResponse response = CreateBoard("RestSharpBoard");
 
             Console.WriteLine(response.id);
             Console.WriteLine(response.name);
             Console.WriteLine(response.url);
 
             this.createResponse = response;
+        }
 
-            string newBoardID = response.id;
+        [Test]
+        public void DeleteBoardE2E()
+        {
+            CreateBoardResponse createResponse = CreateBoard("DeleteBoard");
 
+            RestClient client = new RestClient(trelloURI);
+            IRestRequest request = new RestRequest("/boards/" + createResponse.id);
+            request.Method = Method.DELETE;
+
+            request.AddParameter("key", key);
+            request.AddParameter("token", token);
+
+            IRestResponse response = client.Execute(request);
         }
 
         [Test]
         public void GetBoardByID()
         {
+
+
             //Do I need to even create the parameters again or just call from the class
             //test can only be ran if board has been created.  Better way to do this?
-            RestClient client = new RestClient(trelloURI);
-            IRestRequest editBoardRequest = new RestRequest("/boards/" + newBoardID);
+            //RestClient client = new RestClient(trelloURI);
+            //IRestRequest editBoardRequest = new RestRequest("/boards/" + newBoardID);
 
-            editBoardRequest.Method = Method.GET;
-            editBoardRequest.AddParameter("key", key);
-            editBoardRequest.AddParameter("token", token);
+            //editBoardRequest.Method = Method.GET;
+            //editBoardRequest.AddParameter("key", key);
+            //editBoardRequest.AddParameter("token", token);
 
-            IRestResponse createResponse = client.Execute(editBoardRequest); //there is a problem on this line
+            //IRestResponse createResponse = client.Execute(editBoardRequest); //there is a problem on this line
 
-            string returnedJson = createResponse.Content;
+            //string returnedJson = createResponse.Content;
 
-            dynamic api = JObject.Parse(returnedJson);
+            //dynamic api = JObject.Parse(returnedJson);
 
-            var id = api.id;
-            var name = api.name;
-            var url = api.url;
+            //var id = api.id;
+            //var name = api.name;
+            //var url = api.url;
 
-            Console.WriteLine("I can confirm that the id is " + id);
+            //Console.WriteLine("I can confirm that the id is " + id);
         }
 
         //Get property from board

@@ -134,6 +134,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIMethods\APIActions.cs" />
     <Compile Include="APIMethods\APIRequests.cs" />
     <Compile Include="APIMethods\CreateBoardResponse.cs" />
     <Compile Include="Factory_Classes\BrowserFactory.cs" />
