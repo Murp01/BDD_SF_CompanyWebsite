@@ -4,6 +4,7 @@ using RestSharp;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using CompanyWebsitePageFactory.APIMethods;
+using NUnit.Framework;
 
 namespace CompanyWebsitePageFactory.APIMethods
 {
@@ -28,7 +29,7 @@ namespace CompanyWebsitePageFactory.APIMethods
             request.Method = Method.POST;
 
             //at this point createboardrequest is a post method.  Here we add parameters
-            request.AddParameter("idBoard", boardID);
+            request.AddParameter("idBoard", boardID);   //is this used?
             request.AddParameter("name", name);
             request.AddParameter("key", key);
             request.AddParameter("token", token);
@@ -38,6 +39,75 @@ namespace CompanyWebsitePageFactory.APIMethods
             IRestResponse response = client.Execute(request);
 
             return JsonConvert.DeserializeObject<CreateBoardResponse>(response.Content);
+        }
+
+        public void DeleteBoard(string boardID)
+        {
+            RestClient client = new RestClient(trelloURI);
+            IRestRequest request = new RestRequest("/boards/" + boardID);
+            request.Method = Method.DELETE;
+
+            request.AddParameter("key", key);
+            request.AddParameter("token", token);
+
+            IRestResponse response = client.Execute(request);
+        }
+
+
+        public void GetBoard(string boardID)
+        {
+
+
+            //Do I need to even create the parameters again or just call from the class
+            //test can only be ran if board has been created.  Better way to do this?
+            RestClient client = new RestClient(trelloURI);
+            IRestRequest request = new RestRequest("/boards/" + boardID);
+
+            request.Method = Method.GET;
+            request.AddParameter("key", key);
+            request.AddParameter("token", token);
+
+            IRestResponse createResponse = client.Execute(request); //there is a problem on this line
+
+            string returnedJson = createResponse.Content;
+
+            dynamic api = JObject.Parse(returnedJson);
+
+            var id = api.id;
+            var name = api.name;
+            var url = api.url;
+
+            Console.WriteLine("I can confirm that the id is " + id);
+            Console.WriteLine("I can confirm that the board name is " + name);
+        }
+
+        public void AssertBoardProperty(string property)
+        {
+            RestClient client = new RestClient(trelloURI);
+            IRestRequest request = new RestRequest("/boards/" + boardID);
+            request.Method = Method.GET;
+            request.AddParameter("key", key);
+            request.AddParameter("token", token);
+            IRestResponse createResponse = client.Execute(request); //there is a problem on this line
+            string returnedJson = createResponse.Content;
+            dynamic api = JObject.Parse(returnedJson);
+
+            var id = api.id;
+            var name = api.name;
+            var url = api.url;
+
+            switch (property)
+            {
+                case "ID":
+                  Console.WriteLine("I can confirm that the id is " + id);
+                    Assert.That(id == "5d9f30d4bd96ec8a9d4bd389");
+                    break;
+                case "NAME":
+                   Console.WriteLine("I can confirm that the board name is " + name);
+                    Assert.That(name == "NewBoardcatpuredVariable"); 
+                    break;
+            }
+
         }
     }
 }
