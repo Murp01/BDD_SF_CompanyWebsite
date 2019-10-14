@@ -10,14 +10,12 @@ namespace CompanyWebsitePageFactory.APIMethods
 {
     class APIActions
     {
-        //string Board1 = "https://api.trello.com/1/boards/5d9f30d4bd96ec8a9d4bd389?fields=name,url&key=ebd1f371dd70dc02f3ba8bece74198e3&token=a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
+        //CreateBoardResponse createResponse;
+        //string newBoardID;
         string trelloURI = "https://api.trello.com/1";
-        string boardID = "5d9f30d4bd96ec8a9d4bd389";
-        string listID = "5d9f3dcf1aea3f44c1e9685d";
         string key = "ebd1f371dd70dc02f3ba8bece74198e3";
         string token = "a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
-        CreateBoardResponse createResponse;
-        string newBoardID;
+
 
         public CreateBoardResponse CreateBoard(string name)
         {
@@ -29,7 +27,7 @@ namespace CompanyWebsitePageFactory.APIMethods
             request.Method = Method.POST;
 
             //at this point createboardrequest is a post method.  Here we add parameters
-            request.AddParameter("idBoard", boardID);   //is this used?
+            //request.AddParameter("idBoard", boardID);   //is this used? IF ISSUES LOOK HERE
             request.AddParameter("name", name);
             request.AddParameter("key", key);
             request.AddParameter("token", token);
@@ -38,21 +36,11 @@ namespace CompanyWebsitePageFactory.APIMethods
             //create response is an object that contains the json data
             IRestResponse response = client.Execute(request);
 
+            int StatusCode = (int)response.StatusCode;
+            Assert.AreEqual(200, StatusCode, "Status code is not 200");
+
             return JsonConvert.DeserializeObject<CreateBoardResponse>(response.Content);
         }
-
-        public void DeleteBoard(string boardID)
-        {
-            RestClient client = new RestClient(trelloURI);
-            IRestRequest request = new RestRequest("/boards/" + boardID);
-            request.Method = Method.DELETE;
-
-            request.AddParameter("key", key);
-            request.AddParameter("token", token);
-
-            IRestResponse response = client.Execute(request);
-        }
-
 
         public void GetBoard(string boardID)
         {
@@ -81,8 +69,25 @@ namespace CompanyWebsitePageFactory.APIMethods
             Console.WriteLine("I can confirm that the board name is " + name);
         }
 
-        public void AssertBoardProperty(string property)
+        public void DeleteBoard(string boardID)
         {
+            RestClient client = new RestClient(trelloURI);
+            IRestRequest request = new RestRequest("/boards/" + boardID);
+            request.Method = Method.DELETE;
+
+            request.AddParameter("key", key);
+            request.AddParameter("token", token);
+
+            IRestResponse response = client.Execute(request);
+            int StatusCode = (int)response.StatusCode;
+            Assert.AreEqual(200, StatusCode, "Status code is not 200");
+
+
+        }
+
+        public void AssertBoardProperty(string boardID, string property)
+        {
+            //Might need to add an extra argument for boardID
             RestClient client = new RestClient(trelloURI);
             IRestRequest request = new RestRequest("/boards/" + boardID);
             request.Method = Method.GET;
@@ -107,7 +112,22 @@ namespace CompanyWebsitePageFactory.APIMethods
                     Assert.That(name == "NewBoardcatpuredVariable"); 
                     break;
             }
-
         }
+
+        public void CreateAList(string boardID, string listName)
+        {
+            RestClient client = new RestClient(trelloURI);
+            IRestRequest request = new RestRequest("/lists");
+            request.Method = Method.POST;
+         
+            request.AddParameter("name", listName);
+            request.AddParameter("key", key);
+            request.AddParameter("token", token);
+            request.AddParameter("idBoard", boardID);
+
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+        }
+
     }
 }

@@ -3,8 +3,7 @@ using NUnit.Framework;
 using RestSharp;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using CompanyWebsitePageFactory.APIMethods;
-using NUnit.Framework;
+
 
 namespace CompanyWebsitePageFactory.APIMethods
 {
@@ -12,13 +11,13 @@ namespace CompanyWebsitePageFactory.APIMethods
     {
         //string Board1 = "https://api.trello.com/1/boards/5d9f30d4bd96ec8a9d4bd389?fields=name,url&key=ebd1f371dd70dc02f3ba8bece74198e3&token=a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
         string trelloURI = "https://api.trello.com/1";
-        string boardID = "5d9f30d4bd96ec8a9d4bd389";
+        string boardID = "5da47ead4b6b976fb6299607";
         string listID = "5d9f3dcf1aea3f44c1e9685d";
         string key = "ebd1f371dd70dc02f3ba8bece74198e3";
         string token = "a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
         string delBoardID = "5da454018463d52c2e4fe42a";
         CreateBoardResponse createResponse;
-        string newBoardID;
+        string listName = "New Test List";
 
 
         [Test]
@@ -69,18 +68,15 @@ namespace CompanyWebsitePageFactory.APIMethods
         public void AssertBoardName()
         {
             APIActions actions = new APIActions();
-            actions.AssertBoardProperty("NAME");
+            actions.AssertBoardProperty(boardID, "NAME");
         }
 
         [Test]
         public void AssertBoardID()
         {
             APIActions actions = new APIActions();
-            actions.AssertBoardProperty("ID");
+            actions.AssertBoardProperty(boardID, "ID");
         }
-
-
-
 
 
         [Test]
@@ -103,6 +99,18 @@ namespace CompanyWebsitePageFactory.APIMethods
 
             Console.WriteLine(createResponse.Content);
         }
+
+        [Test]
+        public void CreateListOnBoard()
+        {
+            APIActions action = new APIActions();
+            action.CreateAList(boardID, listName);
+        }
+
+
+
+
+
 
 
 
