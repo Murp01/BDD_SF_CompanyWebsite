@@ -7,17 +7,19 @@ using Newtonsoft.Json;
 
 namespace CompanyWebsitePageFactory.APIMethods
 {
-    class APIRequests
+    class APITests
     {
         //string Board1 = "https://api.trello.com/1/boards/5d9f30d4bd96ec8a9d4bd389?fields=name,url&key=ebd1f371dd70dc02f3ba8bece74198e3&token=a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
         string trelloURI = "https://api.trello.com/1";
         string boardID = "5da47ead4b6b976fb6299607";
-        string listID = "5d9f3dcf1aea3f44c1e9685d";
+        string listID = "5da457632e26ab5f02d33c6f";
         string key = "ebd1f371dd70dc02f3ba8bece74198e3";
         string token = "a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
         string delBoardID = "5da454018463d52c2e4fe42a";
         CreateBoardResponse createResponse;
         string listName = "New Test List";
+        string cardID = "5da45e1347ae5063fcc2c6e2";
+        string cardName = "New Card Test";
 
 
         [Test]
@@ -34,7 +36,7 @@ namespace CompanyWebsitePageFactory.APIMethods
         }
 
         [Test]
-        public void DeleteBoardE2E()
+        public void E2EDeleteBoard()
         {
             APIActions action = new APIActions();
             CreateBoardResponse createResponse = action.CreateBoard("DeleteBoardTest");
@@ -78,26 +80,11 @@ namespace CompanyWebsitePageFactory.APIMethods
             actions.AssertBoardProperty(boardID, "ID");
         }
 
-
         [Test]
-        public void CreateATrelloCard()
+        public void CreateCardOnList()
         {
-            RestClient client = new RestClient(trelloURI);
-
-            IRestRequest createCardRequest = new RestRequest("/cards");
-
-            createCardRequest.Method = Method.POST;
-
-            createCardRequest.AddParameter("idBoard", boardID);
-            createCardRequest.AddParameter("name", "TestAddCard");
-            createCardRequest.AddParameter("idList", listID);
-            createCardRequest.AddParameter("key", key);
-            createCardRequest.AddParameter("token", token);
-
-            //website stated IRestRequest - error can't convert response to request
-            IRestResponse createResponse = client.Execute(createCardRequest);
-
-            Console.WriteLine(createResponse.Content);
+            APIActions actions = new APIActions();
+            actions.CreateACard(boardID, listID, cardName);
         }
 
         [Test]
@@ -105,6 +92,14 @@ namespace CompanyWebsitePageFactory.APIMethods
         {
             APIActions action = new APIActions();
             action.CreateAList(boardID, listName);
+        }
+
+        [Test]
+        public void MoveCardToList()
+        {
+            //Doesn't work?
+            APIActions actions = new APIActions();
+            actions.MoveCardBetweenLists(boardID, cardID, listID);
         }
 
 

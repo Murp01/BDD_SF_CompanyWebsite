@@ -3,8 +3,6 @@ using NUnit.Framework;
 using RestSharp;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using CompanyWebsitePageFactory.APIMethods;
-using NUnit.Framework;
 
 namespace CompanyWebsitePageFactory.APIMethods
 {
@@ -114,6 +112,22 @@ namespace CompanyWebsitePageFactory.APIMethods
             }
         }
 
+        public void CreateACard(string boardID, string listID, string cardName)
+        {
+            RestClient client = new RestClient(trelloURI);
+            IRestRequest request = new RestRequest("/cards");
+            request.Method = Method.POST;
+
+            request.AddParameter("name", cardName);
+            request.AddParameter("key", key);
+            request.AddParameter("token", token);
+            request.AddParameter("idBoard", boardID);
+            request.AddParameter("idList", listID);
+
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+        }
+
         public void CreateAList(string boardID, string listName)
         {
             RestClient client = new RestClient(trelloURI);
@@ -124,6 +138,20 @@ namespace CompanyWebsitePageFactory.APIMethods
             request.AddParameter("key", key);
             request.AddParameter("token", token);
             request.AddParameter("idBoard", boardID);
+
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+        }
+
+        public void MoveCardBetweenLists(string boardID, string cardID, string listID)
+        {
+            RestClient client = new RestClient(trelloURI);
+            IRestRequest request = new RestRequest("/cards");
+            request.Method = Method.PUT;
+
+            request.AddParameter("key", key);
+            request.AddParameter("token", token);
+            request.AddParameter("idList", listID);
 
             IRestResponse response = client.Execute(request);
             Console.WriteLine(response.Content);
