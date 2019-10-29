@@ -18,20 +18,22 @@ namespace CompanyWebsitePageFactory.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Searching Insight Articles")]
-    public partial class SearchingInsightArticlesFeature
+    [NUnit.Framework.DescriptionAttribute("PrimaryNavigationMenu")]
+    public partial class PrimaryNavigationMenuFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ArticleSearch.feature"
+#line 1 "PrimaryNavigationMenu.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Searching Insight Articles", "\tVarious tests to cover searching insight articles", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PrimaryNavigationMenu", "\tThe Primary Navigation Menu is the main banner at the\r\n\ttop of the webpage.  The" +
+                    " menu contains the Homepage button,\r\n\tSign in button, search box and page naviga" +
+                    "tion buttons.\r\n\tNote: search box and Sign in have their own feature files", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,42 +73,28 @@ namespace CompanyWebsitePageFactory.Features
         
         public virtual void FeatureBackground()
         {
-#line 4
-#line 5
- testRunner.Given("I am on the Linklaters homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 6
- testRunner.And("I click on Insights from the global navigation bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 7
+#line 8
+ testRunner.Given("I am on the BBC homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Use a search term that will return a large volume of articles")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void UseASearchTermThatWillReturnALargeVolumeOfArticles()
+        [NUnit.Framework.DescriptionAttribute("More drop down reveals further nav options")]
+        [NUnit.Framework.CategoryAttribute("Ready")]
+        public virtual void MoreDropDownRevealsFurtherNavOptions()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Use a search term that will return a large volume of articles", null, new string[] {
-                        "mytag"});
-#line 10
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 4
-this.FeatureBackground();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("More drop down reveals further nav options", null, new string[] {
+                        "Ready"});
 #line 11
- testRunner.When("I enter a search term into Insights name search box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("I filter the Insights results to show articles from 2018")]
-        public virtual void IFilterTheInsightsResultsToShowArticlesFrom2018()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I filter the Insights results to show articles from 2018", null, ((string[])(null)));
-#line 15
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 4
+#line 7
 this.FeatureBackground();
+#line 12
+ testRunner.When("I click on the More drop down button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
+ testRunner.Then("further nav options are revealed below the primary nav bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

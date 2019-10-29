@@ -47,6 +47,20 @@ namespace CompanyWebsitePageFactory.Extensions
 
         }
 
+        public static void JavaScriptClick(IWebElement GetWebElement)
+        {
+            //IJavaScriptExecutor executor = (IJavaScriptExecutor)BrowserFactory.Driver;
+            //executor.ExecuteScript("arguments[0].click()", GetWebElement(true, true));
+
+
+            //IWebDriver driver; // assume assigned elsewhere - Look into this
+            //IJavaScriptExecutor js = (IJavaScriptExecutor)BrowserFactory.Driver;           
+            //string title = (string)js.ExecuteScript("return document.title");
+
+            //BrowserFactory.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+        }
+
         public static void SelectByText(this IWebElement element, string text, string elementName)
         {
             SelectElement oSelect = new SelectElement(element);
@@ -68,26 +82,21 @@ namespace CompanyWebsitePageFactory.Extensions
             Console.WriteLine(text + " value selected on " + elementName);
         }
 
-        public static void JavaScriptClick()
-        {
-            //IWebDriver driver; // assume assigned elsewhere - Look into this
-            IJavaScriptExecutor js = (IJavaScriptExecutor)BrowserFactory.Driver;
-            string title = (string)js.ExecuteScript("return document.title");
-        }
+
 
         public static void BrowserNavigate(string nav)
         {
             switch (nav)
             {
                 case ("Forward"):
-                    BrowserFactory.Driver.Navigate().Forward();
+                    BrowserFactory.GetDriver.Navigate().Forward();
                     
                     break;
                 case ("Back"):
-                    BrowserFactory.Driver.Navigate().Back();
+                    BrowserFactory.GetDriver.Navigate().Back();
                     break;
                 case ("Refresh"):
-                    BrowserFactory.Driver.Navigate().Refresh();
+                    BrowserFactory.GetDriver.Navigate().Refresh();
                     break;                  
             }
             Console.WriteLine("Browser Navigated " + nav);
