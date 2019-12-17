@@ -10,15 +10,12 @@ namespace CompanyWebsitePageFactory.BrowserWrapper
 {
     class BrowserFactory
     {
-        private static readonly IDictionary<string, IWebDriver> Drivers = new Dictionary<string, IWebDriver>();
         private static IWebDriver driver;
 
         public static IWebDriver Driver 
         {
             get
             {
-                if (driver == null)
-                    throw new NullReferenceException("The WebDriver browser instance was not initialized. You should first call the method InitBrowser.");
                 return driver;
             }
             private set
@@ -33,27 +30,15 @@ namespace CompanyWebsitePageFactory.BrowserWrapper
             switch (browserName)
             {
                 case "Firefox":
-                    if (driver == null)
-                    {
                         driver = new FirefoxDriver();
-                        Drivers.Add("Firefox", Driver);
-                    }
                     break;
 
                 case "IE":
-                    if (driver == null)
-                    {
                         driver = new InternetExplorerDriver(@"C:\Webdriver");
-                        Drivers.Add("IE", Driver);
-                    }
                     break;
 
                 case "Chrome":
-                    if (driver == null)
-                    {
                         driver = new ChromeDriver();
-                        Drivers.Add("Chrome", Driver);
-                    }
                     break;
             }
         }
@@ -65,11 +50,9 @@ namespace CompanyWebsitePageFactory.BrowserWrapper
 
         public static void CloseAllDrivers()
         {
-            foreach (var key in Drivers.Keys)
-            {
-                Drivers[key].Close();
-                Drivers[key].Quit();
-            }
+            Driver.Close();
+            Driver.Quit();
+            driver = null;
         }
     }
 
