@@ -1,4 +1,5 @@
-﻿using CompanyWebsitePageFactory.BrowserWrapper;
+﻿using Common_Paul.Webdriver;
+using CompanyWebsitePageFactory.BrowserWrapper;
 using OpenQA.Selenium.Support.PageObjects;
 
 
@@ -9,7 +10,7 @@ namespace CompanyWebsitePageFactory.PageObjects
         private static T GetPage<T>() where T : new()
         {
             var page = new T();
-            PageFactory.InitElements(BrowserFactory.GetDriver, page);
+            PageFactory.InitElements(WebdriverInit.GetDriver, page);
             return page;
         }
 

@@ -3,6 +3,7 @@ using System;
 using TechTalk.SpecFlow;
 using System.Configuration;
 using CompanyWebsitePageFactory.PageObjects;
+using Common_Paul.Webdriver;
 
 namespace CompanyWebsitePageFactory.StepDefinitions
 {
@@ -12,7 +13,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I access the websites homepage")]
         public void GivenIAccessTheWebsitesHomepage()
         {
-            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["AboutUs"]);
+            WebdriverInit.GoToURL(ConfigurationManager.AppSettings["AboutUs"]);
         }
         
         [Given(@"I am on the ""(.*)"" page")]

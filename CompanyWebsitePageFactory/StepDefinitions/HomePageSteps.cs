@@ -1,4 +1,5 @@
-﻿using CompanyWebsitePageFactory.BrowserWrapper;
+﻿using Common_Paul.Webdriver;
+using CompanyWebsitePageFactory.BrowserWrapper;
 using CompanyWebsitePageFactory.PageObjects;
 using System.Configuration;
 using TechTalk.SpecFlow;
@@ -11,7 +12,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I am on the Linklaters homepage")]
         public void GivenIAmOnTheLinklatersHomepage()
         {
-            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
+            WebdriverInit.GoToURL(ConfigurationManager.AppSettings["URL"]);
         }
 
 

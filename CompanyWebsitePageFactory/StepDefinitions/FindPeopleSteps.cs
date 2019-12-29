@@ -6,6 +6,7 @@ using System;
 using System.Configuration;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
+using Common_Paul.Webdriver;
 
 namespace CompanyWebsitePageFactory.StepDefinitions
 {
@@ -15,7 +16,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I am on the Lawyer Search Page")]
         public void GivenIAmOnTheLawyerSearchPage()
         {
-            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["FindPeople"]);
+            WebdriverInit.GoToURL(ConfigurationManager.AppSettings["FindPeople"]);
         }
 
         [Given(@"the ""(.*)"" selector is selected")]

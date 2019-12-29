@@ -12,6 +12,8 @@ using System.IO;
 using System;
 using System.Drawing.Imaging;
 using OpenQA.Selenium;
+using Common_Paul.Webdriver;
+
 
 
 
@@ -51,10 +53,16 @@ namespace CompanyWebsitePageFactory.Runner
         [BeforeScenario]
         public void Initialize()
         {
-            BrowserFactory.InitBrowser("Chrome");
-            BrowserFactory.GetDriver.Manage().Window.Maximize();
-            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
+            //BrowserFactory.InitBrowser("Chrome");
+            //BrowserFactory.GetDriver.Manage().Window.Maximize();
+            //BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
+            WebdriverInit.InitBrowser("Chrome");
+            WebdriverInit.GetDriver.Manage().Window.Maximize();
+            WebdriverInit.GoToURL(ConfigurationManager.AppSettings["URL"]);
+
+
             scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
+
         }
 
 
@@ -86,25 +94,25 @@ namespace CompanyWebsitePageFactory.Runner
                 if (stepType == "Given")
                 {
                     scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
-                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
+                    var screenshot = ((ITakesScreenshot)WebdriverInit.GetDriver).GetScreenshot();
                     screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }              
                 else if (stepType == "When")
                 {
                     scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
-                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
+                    var screenshot = ((ITakesScreenshot)WebdriverInit.GetDriver).GetScreenshot();
                     screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }                   
                 else if (stepType == "Then")
                 {
                     scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
-                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
+                    var screenshot = ((ITakesScreenshot)WebdriverInit.GetDriver).GetScreenshot();
                     screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }                   
                 else if (stepType == "And")
                 {
                     scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
-                    var screenshot = ((ITakesScreenshot)BrowserFactory.GetDriver).GetScreenshot();
+                    var screenshot = ((ITakesScreenshot)WebdriverInit.GetDriver).GetScreenshot();
                     screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }
                     
@@ -131,7 +139,7 @@ namespace CompanyWebsitePageFactory.Runner
         [AfterScenario]
         public void CloseScenario()
         {
-            BrowserFactory.CloseAllDrivers();
+            WebdriverInit.CloseAllDrivers();
         }
 
 

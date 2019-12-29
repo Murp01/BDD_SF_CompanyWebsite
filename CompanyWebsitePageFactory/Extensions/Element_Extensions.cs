@@ -1,4 +1,5 @@
-﻿using CompanyWebsitePageFactory.BrowserWrapper;
+﻿using Common_Paul.Webdriver;
+using CompanyWebsitePageFactory.BrowserWrapper;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -89,14 +90,14 @@ namespace CompanyWebsitePageFactory.Extensions
             switch (nav)
             {
                 case ("Forward"):
-                    BrowserFactory.GetDriver.Navigate().Forward();
+                    WebdriverInit.GetDriver.Navigate().Forward();
                     
                     break;
                 case ("Back"):
-                    BrowserFactory.GetDriver.Navigate().Back();
+                    WebdriverInit.GetDriver.Navigate().Back();
                     break;
                 case ("Refresh"):
-                    BrowserFactory.GetDriver.Navigate().Refresh();
+                    WebdriverInit.GetDriver.Navigate().Refresh();
                     break;                  
             }
             Console.WriteLine("Browser Navigated " + nav);

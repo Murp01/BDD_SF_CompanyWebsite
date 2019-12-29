@@ -1,4 +1,5 @@
-﻿using CompanyWebsitePageFactory.BrowserWrapper;
+﻿using Common_Paul.Webdriver;
+using CompanyWebsitePageFactory.BrowserWrapper;
 using CompanyWebsitePageFactory.PageObjects;
 using OpenQA.Selenium;
 using System;
@@ -14,7 +15,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I am on the About Us page")]
         public void GivenIAmOnTheAboutUsPage()
         {
-            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["ContactUs"]);
+            WebdriverInit.GoToURL(ConfigurationManager.AppSettings["ContactUs"]);
         }
 
         [When(@"I select the ""(.*)"" location from the Contact Us drop down box")]

@@ -1,4 +1,5 @@
-﻿using CompanyWebsitePageFactory.BrowserWrapper;
+﻿using Common_Paul.Webdriver;
+using CompanyWebsitePageFactory.BrowserWrapper;
 using CompanyWebsitePageFactory.Extensions;
 using CompanyWebsitePageFactory.PageObjects;
 using System.Configuration;
@@ -12,7 +13,7 @@ namespace CompanyWebsitePageFactory.StepDefinitions
         [Given(@"I am on the About Us homepage")]
         public void GivenIAmOnTheAboutUsHomepage()
         {
-            BrowserFactory.GoToURL(ConfigurationManager.AppSettings["AboutUs"]);
+            WebdriverInit.GoToURL(ConfigurationManager.AppSettings["AboutUs"]);
         }
 
         [When(@"I click on each ""(.*)"" accordion segment")]
