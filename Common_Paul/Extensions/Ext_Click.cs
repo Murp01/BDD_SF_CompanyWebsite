@@ -2,13 +2,13 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-
-namespace CompanyWebsitePageFactory.Extensions
+namespace Common_Paul.Extensions
 {
-    public static class Element_Extensions
+    public static class Ext_Click
     {
-
         public static void EnterText(this IWebElement element, string text, string elementName)
         {
             element.Clear();
@@ -90,14 +90,14 @@ namespace CompanyWebsitePageFactory.Extensions
             {
                 case ("Forward"):
                     WebdriverInit.GetDriver.Navigate().Forward();
-                    
+
                     break;
                 case ("Back"):
                     WebdriverInit.GetDriver.Navigate().Back();
                     break;
                 case ("Refresh"):
                     WebdriverInit.GetDriver.Navigate().Refresh();
-                    break;                  
+                    break;
             }
             Console.WriteLine("Browser Navigated " + nav);
         }
@@ -111,7 +111,5 @@ namespace CompanyWebsitePageFactory.Extensions
             }
             return driver.FindElement(by);
         }
-
     }
-
 }

@@ -1,5 +1,4 @@
 ﻿using CompanyWebsitePageFactory.Extensions;
-using CompanyWebsitePageFactory.BrowserWrapper;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;

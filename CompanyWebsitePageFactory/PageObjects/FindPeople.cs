@@ -1,5 +1,4 @@
-﻿using CompanyWebsitePageFactory.BrowserWrapper;
-using CompanyWebsitePageFactory.Extensions;
+﻿using CompanyWebsitePageFactory.Extensions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using CompanyWebsitePageFactory.TestDataAccess;

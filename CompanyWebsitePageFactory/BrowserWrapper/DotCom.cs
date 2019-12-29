@@ -1,5 +1,4 @@
 ﻿using Common_Paul.Webdriver;
-using CompanyWebsitePageFactory.BrowserWrapper;
 using OpenQA.Selenium.Support.PageObjects;
 
 

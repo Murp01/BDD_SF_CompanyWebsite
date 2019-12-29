@@ -129,7 +129,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrowserWrapper\BrowserFactory.cs" />
     <Compile Include="Extensions\Element_Extensions.cs" />
     <Compile Include="Features\AccordionWidget.feature.cs">
       <AutoGen>True</AutoGen>

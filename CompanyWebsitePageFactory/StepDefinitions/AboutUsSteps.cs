@@ -1,5 +1,4 @@
 ﻿using Common_Paul.Webdriver;
-using CompanyWebsitePageFactory.BrowserWrapper;
 using CompanyWebsitePageFactory.Extensions;
 using CompanyWebsitePageFactory.PageObjects;
 using System.Configuration;

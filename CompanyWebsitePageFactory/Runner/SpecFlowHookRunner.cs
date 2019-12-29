@@ -1,5 +1,4 @@
-﻿using CompanyWebsitePageFactory.BrowserWrapper;
-using System.Configuration;
+﻿using System.Configuration;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using NUnit.Framework;
@@ -53,14 +52,9 @@ namespace CompanyWebsitePageFactory.Runner
         [BeforeScenario]
         public void Initialize()
         {
-            //BrowserFactory.InitBrowser("Chrome");
-            //BrowserFactory.GetDriver.Manage().Window.Maximize();
-            //BrowserFactory.GoToURL(ConfigurationManager.AppSettings["URL"]);
             WebdriverInit.InitBrowser("Chrome");
             WebdriverInit.GetDriver.Manage().Window.Maximize();
             WebdriverInit.GoToURL(ConfigurationManager.AppSettings["URL"]);
-
-
             scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
 
         }

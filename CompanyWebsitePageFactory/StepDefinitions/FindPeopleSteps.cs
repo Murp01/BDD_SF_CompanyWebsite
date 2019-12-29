@@ -1,7 +1,5 @@
-﻿using CompanyWebsitePageFactory.BrowserWrapper;
-using CompanyWebsitePageFactory.Extensions;
+﻿using CompanyWebsitePageFactory.Extensions;
 using CompanyWebsitePageFactory.PageObjects;
-using CompanyWebsitePageFactory.BrowserWrapper;
 using System;
 using System.Configuration;
 using TechTalk.SpecFlow;
