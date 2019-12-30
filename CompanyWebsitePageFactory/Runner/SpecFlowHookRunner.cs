@@ -11,7 +11,8 @@ using System.IO;
 using System;
 using System.Drawing.Imaging;
 using OpenQA.Selenium;
-using Common_Paul.Webdriver;
+using Automation_Common.Webdriver;
+//using Common_Paul.Webdriver;
 
 
 
@@ -89,25 +90,25 @@ namespace CompanyWebsitePageFactory.Runner
                 {
                     scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
                     var screenshot = ((ITakesScreenshot)WebdriverInit.GetDriver).GetScreenshot();
-                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
+                    //screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }              
                 else if (stepType == "When")
                 {
                     scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
                     var screenshot = ((ITakesScreenshot)WebdriverInit.GetDriver).GetScreenshot();
-                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
+                    //screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }                   
                 else if (stepType == "Then")
                 {
                     scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
                     var screenshot = ((ITakesScreenshot)WebdriverInit.GetDriver).GetScreenshot();
-                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
+                    //screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }                   
                 else if (stepType == "And")
                 {
                     scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
                     var screenshot = ((ITakesScreenshot)WebdriverInit.GetDriver).GetScreenshot();
-                    screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
+                    //screenshot.SaveAsFile(@"C:\ExtentReports\Screenshot.jpg", ImageFormat.Jpeg);
                 }
                     
             }
