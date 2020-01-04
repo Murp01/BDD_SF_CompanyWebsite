@@ -11,8 +11,8 @@ namespace CompanyWebsitePageFactory.APIMethods
         //CreateBoardResponse createResponse;
         //string newBoardID;
         string trelloURI = "https://api.trello.com/1";
-        string key = "ebd1f371dd70dc02f3ba8bece74198e3";
-        string token = "a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
+        string key = "UpdateTHIS";
+        string token = "UpdateTHIS";
 
 
         public CreateBoardResponse CreateBoard(string name)
