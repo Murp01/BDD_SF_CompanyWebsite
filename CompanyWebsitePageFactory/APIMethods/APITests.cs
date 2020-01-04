@@ -13,8 +13,8 @@ namespace CompanyWebsitePageFactory.APIMethods
         string trelloURI = "https://api.trello.com/1";
         string boardID = "5da47ead4b6b976fb6299607";
         string listID = "5da457632e26ab5f02d33c6f";
-        string key = "ebd1f371dd70dc02f3ba8bece74198e3";
-        string token = "a01ad06d09e40ed4b1a426b2107a2eab79bcced748f2c726dd441763c84f0023";
+        string key = "UPDATETHIS";
+        string token = "UPDATETHIS";
         string delBoardID = "5da454018463d52c2e4fe42a";
         CreateBoardResponse createResponse;
         string listName = "New Test List";
